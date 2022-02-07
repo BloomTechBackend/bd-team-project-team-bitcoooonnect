@@ -1,4 +1,4 @@
-# [Team Name] Project Rubric
+# Team Bitcoooonnect Project Rubric
 
 ## Background
 

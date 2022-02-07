@@ -1,4 +1,4 @@
-# [team name] Integration Test Plan
+# Team Bitcoooonnect Integration Test Plan
 
 ## Instructions
 

@@ -1,4 +1,4 @@
-# [team name] Design Document
+# Team Bitcoooonnect Design Document
 
 ## Instructions
 

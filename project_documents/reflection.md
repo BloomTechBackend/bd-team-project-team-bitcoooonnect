@@ -1,4 +1,4 @@
-# [Team name] Reflection
+# Team Bitcoooonnect Reflection
 
 ## Instructions
 

@@ -1,4 +1,4 @@
-# [team name] Team Charter
+# Team Bitcoooonnect Team Charter
 
 ## Instructions
 
