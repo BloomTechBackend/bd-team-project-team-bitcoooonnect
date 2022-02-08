@@ -19,9 +19,9 @@ it's hard to track crypto currencies that you own, because they're on different 
 *List the most important questions you have about your design, or things that
 you are still debating internally that you might like help working through.*
 
-1.   
-2.   
-3.  
+1. How to set up a login framework and which framework to use.
+2. How to integrate Coinbase and CoinGecko API.
+3. Which frontend framework to use.
 
 ## 3. Use Cases
 
@@ -29,12 +29,13 @@ you are still debating internally that you might like help working through.*
 would like to do (and why). You may also include use cases for yourselves, or
 for the organization providing the product to customers.*
 
-U1. *As a [product] customer, I want to `<result>` when I `<action>`*
+U1. As a Bitcoooonect customer, I want to see my cryptocurrency holdings when I login to Bitcoooonect.
 
-U2. *As a [product] customer, I want to view my grocery list when I log into the
-grocery list page*
+U2. As a Bitcoooonect customer, I want to add new coins to my cryptocurrency holdings on Bitcoooonect.
     
-U3. ...
+U3. As a Bitcoooonect customer, I want to remove coins from my cryptocurrency holdings on Bitcoooonect.
+
+U4. As a Bitcoooonect customer, I want to update the amount of my exisiting cryptocurrency holdings.
 
 ## 4. Project Scope
 
@@ -48,13 +49,16 @@ your design.*
 *Which parts of the problem defined in Sections 1 and 2 will you solve with this
 design?*
 
+Viewing and managing their current cryptocurrency holdings. This includes seeing the cryptocurrencies that they hold, the amount,
+and the price($USD). Customers can update their portfolio to reflect their actual holdings across all exchanges.
+
 ### 4.2. Out of Scope
 
-*Based on your problem description in Sections 1 and 2, are there any aspects
-you are not planning to solve? Do potential expansions or related problems occur
-to you that you want to explicitly say you are not worrying about now? Feel free
-to put anything here that you think your team can't accomplish in the unit, but
-would love to do with more time.*
+* There are a vast amount of centralized exchanges that users can be storing their crypto on. As a result integrating all these APIs to provide real time holding updates would be useful but is currently out of scope.
+
+* Trading cryptocurrencies directly on our platform is a feature that is out of scope.
+
+* Real time prices updates will not be supported. In order for users to view prices they will need to make a new GET request. The prices that we show are limited to Coingecko's API terms, therefore users might not be able to make many GET requests for the most up to date prices. 
 
 # 5. Proposed Architecture Overview
 
