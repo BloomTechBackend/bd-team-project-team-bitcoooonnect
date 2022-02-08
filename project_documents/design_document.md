@@ -3,7 +3,7 @@
 ## Instructions
 
 *Save a copy of this template for your team in the same folder that contains
-this template.*
+this template.
 
 *Replace italicized text (including this text!) with details of the design you
 are proposing for your team project. (Your replacement text shouldn't be in
