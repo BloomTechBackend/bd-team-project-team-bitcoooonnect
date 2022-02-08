@@ -1,18 +1,10 @@
 # Team Bitcoooonnect Design Document
 
-## Instructions
-
-Input coin type and quantity, get prices using coin price aggregator api 
-
-## Team Bitcoooonnect Design
-
-
+## Bitcoooonnect Design
 
 ## 1. Problem Statement
 
-it's hard to track crypto currencies that you own, because they're on different exchanges whether they be centralizes or decentralized.
-
-
+It's hard to track crypto currencies that you own, because they're on different exchanges whether they be centralizes or decentralized.
 
 ## 2. Top Questions to Resolve in Review
 
