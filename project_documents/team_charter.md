@@ -35,70 +35,60 @@ These resources may be helpful as you fill out your team charter. They are optio
 
 |Name            |Preferred Contact Method (Zoom, Slack, email, etc.) |
 |---	           |---                                           |
-|Team Member (a) |                                              |
-|Team Member (b) |                                              |
-|Team Member (c) |                                              |
-|Team Member (d) |                                              |
+|Ron | Slack / Discord                                              |
+|Juan |    Slack / Discord                                           |
+|Evan |      Slack / Discord                                         |
 
 ### Psychological safety
 
 * **How can we take risks on this team without feeling insecure or
   embarrassed?**
-    *E.g., Be open to opinions that differ from your own, actively ask for
-    opinions from each member of the team, do not interrupt each other, don’t
-    place blame, all suggestions or questions are encouraged, listened to,
-    considered equally, and never judged*
+
+    Be open-minded when teammates express different opinions, and don't create an environment where people feel they can't express their true opinion.
+    
+
 
 * **How do we address situations where any team member feels unsafe?**
-    *E.g., communicate when there is a misunderstanding, don’t move forward
-    until the situation is resolved, directly address and resolve negativity,
-    give and receive feedback with a positive, strength-building mindset, if
-    necessary, escalate to a BloomTech staff member*  
+    
+    Escalate the situation to a BloomTech staff member
 
 ### Dependability, Structure, Clarity
 
 * **How can we count on each other to do high quality work on time?**
-     *E.g., estimate task size, break down large tasks, call out tasks at risk
-     early, ask each other for help, how to ensure timely code reviews, how to
-     share knowledge, help each other hold accountability give frequent,
-     scheduled updates*  
+     
+    Make sure the work burden is fairly distributed and keep in contact to make sure no one is falling behind.
 
 * **How do we address missed deadlines?**
-     *E.g., acknowledge, but don’t punish slipped dates, figure out what went
-     wrong, identify lessons for future*
+     
+    Discuss as a team why the deadline was missed and work towards a solution together.
 
 * **How can we make goals, roles, and execution plans on our team clear?**
-     *E.g., where to track goals and when to review them, use definitive,
-     quantifiable terminology, include clear background on why this goal is
-     necessary, include “done” criteria for the goal (code is pushed with
-     integration tests, document is reviewed, etc.)*
+     
+    Make sure everything is written down, and use organizational tools like Basecamp.
 
 
 ### Goals
 
 * **Overall: What is our overall objective for the Learn & Be Curious unit?**
-    *E.g., “Apply what we’ve learned throughout BloomTech in a team project to prepare
-    ourselves for internships and full-time SDE roles.”*
+    Apply what we’ve learned throughout BloomTech in a team project to prepare
+    ourselves for internships and full-time SDE roles. Also the opportunity to get out of our comfort zone and learn new technologies and frameworks
 
 
 * **Performance: What do we want to prioritize in terms of what we achieve?**
-    *What will be true when you have 'succeeded' on this project? E.g. enjoy
-    ourselves, maintain our energy to the end, ensure all team members
-    participate, create professional connections, exceed instructor
-    expectations, efficiently pace the project so we’re not rushing at the end,
-    etc.*
+    Our number one priority is to have a functional product.
 
 
 * **Learning: What are the things that our team wants to learn?**
-    *E.g., develop SDE knowledge, enhance leadership skills, master project
-    planning, improve testing skills, etc*
-
+    * Frontend things (frameworks, languages like JS/CSS/HTML)
+    * Backend Java authentication framework
+    * More about how APIs and AWS work
+    
 
 * **Task processes: What processes will our team follow to meet our goals,
   complete tasks, or to build team relationships?**
-    *E.g., leadership, meeting procedures/length of meetings, expectations for
-    meeting attendance and timeliness, other types of meetings (happy hours,
-    lunch and learns)*
+  * Showing up on time to scheduled meetings
+  * Regular communication about progress with team
+  * Regular progress meetings
 
 
 ## Meaning & Impact
@@ -106,19 +96,17 @@ These resources may be helpful as you fill out your team charter. They are optio
 **What is personally important for each team member about joining BloomTech? About
 becoming an software engineer?**
 
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
+* *Ron*: Not having a minimum wage job anymore, and getting paid to do something I enjoy
+* *Juan*: Solving complex problems for a good salary
+* *Evan*: Building cool products people use (and good salary)
 
 **What each team member wants to achieve: e.g. improve analytical skills, learn
 project management skills, develop public speaking skills, speak up more, speak
 up less, etc.**
 
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
-* *Team member name*:
+* *Ron*: Improve teamwork skills
+* *Juan*: Improve presentation skills
+* *Evan*: Improve communication skills and learn how to collaboratively code a project
 
 ## Team Member Roles and Responsibilities
 
@@ -129,16 +117,15 @@ rotating or permanent roles as you go.*
 
 |**Role**               |**Responsibilities** |**Primary person** |**Secondary person** |
 |---                    |---                  |---                |---                  |
-|Liaison to Instructors | Main contact to instructor to give status updates, including team dynamics, project progress, etc |||
-|Rotating Role 1        |                     |                   |                     |
-|Rotating Role 2        |                     |                   |                     |
-|Rotating Role 3        |                     |                   |                     |
+|Liaison to Instructors | Main contact to instructor to give status updates, including team dynamics, project progress, etc |Evan|Ron|
+|Documentarian       | Keep project documentation up to date                    | Juan                  | Evan                    |
+|Primary Backend       | Work on building out the backend of Bitcoooonect                    | Evan                  | Juan/Ron                    |
+|Primary Frontend       | Work on building out the frontned of Bitcooooonect                    | Juan                  | Ron/Evan                    |
 
 ## Acknowledgement
 
 **I agree to the terms and conditions of these team agreements:**
 
-* Team member (a) Name & Date:
-* Team member (b) Name & Date:
-* Team member (c) Name & Date:
-* Team member (d) Name & Date:
+* Team member (a) Name & Date: Evan 2/9/22
+* Team member (b) Name & Date: Ron 2/9/22
+* Team member (c) Name & Date: Juan 2/9/22
