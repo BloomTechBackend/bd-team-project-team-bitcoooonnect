@@ -1,6 +1,12 @@
 # Team Bitcoooonnect Design Document
 
-## Bitcoooonnect Design
+## Instructions
+
+Input coin type and quantity, get prices using coin price aggregator api 
+
+## Team Bitcoooonnect Design
+
+
 
 ## 1. Problem Statement
 
@@ -8,18 +14,11 @@ It's hard to track crypto currencies that you own, because they're on different 
 
 ## 2. Top Questions to Resolve in Review
 
-*List the most important questions you have about your design, or things that
-you are still debating internally that you might like help working through.*
-
 1. How to set up a login framework and which framework to use.
 2. How to integrate Coinbase and CoinGecko API.
 3. Which frontend framework to use.
 
 ## 3. Use Cases
-
-*This is where we work backwards from the customer and define what our customers
-would like to do (and why). You may also include use cases for yourselves, or
-for the organization providing the product to customers.*
 
 U1. As a Bitcoooonect customer, I want to see my cryptocurrency holdings when I login to Bitcoooonect.
 
