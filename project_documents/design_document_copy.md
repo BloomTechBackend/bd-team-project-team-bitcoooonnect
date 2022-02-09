@@ -8,18 +8,11 @@ It's hard to track crypto currencies that you own, because they're on different 
 
 ## 2. Top Questions to Resolve in Review
 
-*List the most important questions you have about your design, or things that
-you are still debating internally that you might like help working through.*
-
 1. How to set up a login framework and which framework to use.
 2. How to integrate Coinbase and CoinGecko API.
 3. Which frontend framework to use.
 
 ## 3. Use Cases
-
-*This is where we work backwards from the customer and define what our customers
-would like to do (and why). You may also include use cases for yourselves, or
-for the organization providing the product to customers.*
 
 U1. As a Bitcoooonect customer, I want to see my cryptocurrency holdings when I login to Bitcoooonect.
 
@@ -31,15 +24,7 @@ U4. As a Bitcoooonect customer, I want to update the amount of my exisiting cryp
 
 ## 4. Project Scope
 
-*Clarify which parts of the problem you intend to solve. It helps reviewers know
-what questions to ask to make sure you are solving for what you say and stops
-discussions from getting sidetracked by aspects you do not intend to handle in
-your design.*
-
 ### 4.1. In Scope
-
-*Which parts of the problem defined in Sections 1 and 2 will you solve with this
-design?*
 
 Viewing and managing their current cryptocurrency holdings. This includes seeing the cryptocurrencies that they hold, the amount,
 and the price($USD). Customers can update their portfolio to reflect their actual holdings across all exchanges.
