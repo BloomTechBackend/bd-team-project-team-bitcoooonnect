@@ -4,7 +4,7 @@
 
 ## 1. Problem Statement
 
-It's hard to track crypto currencies that you own, because they're on different exchanges whether they be centralizes or decentralized.
+It's hard to track cryptocurrencies that you own, because they're on different centralized exchanges or stored in different wallets.
 
 ## 2. Top Questions to Resolve in Review
 
