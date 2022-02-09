@@ -10,7 +10,7 @@ Input coin type and quantity, get prices using coin price aggregator api
 
 ## 1. Problem Statement
 
-It's hard to track crypto currencies that you own, because they're on different exchanges whether they be centralizes or decentralized.
+It's hard to track cryptocurrencies that you own, because they're on different centralized exchanges or stored in different wallets.
 
 ## 2. Top Questions to Resolve in Review
 
@@ -30,15 +30,7 @@ U4. As a Bitcoooonect customer, I want to update the amount of my exisiting cryp
 
 ## 4. Project Scope
 
-*Clarify which parts of the problem you intend to solve. It helps reviewers know
-what questions to ask to make sure you are solving for what you say and stops
-discussions from getting sidetracked by aspects you do not intend to handle in
-your design.*
-
 ### 4.1. In Scope
-
-*Which parts of the problem defined in Sections 1 and 2 will you solve with this
-design?*
 
 Viewing and managing their current cryptocurrency holdings. This includes seeing the cryptocurrencies that they hold, the amount,
 and the price($USD). Customers can update their portfolio to reflect their actual holdings across all exchanges.
