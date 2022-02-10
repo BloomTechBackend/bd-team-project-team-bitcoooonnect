@@ -1,0 +1,91 @@
+class CryptoTokenModel {
+- cryptoTokenId : String
+- userId : String
+- amount : double
+}
+
+class CryptoTokenUserModel {
+- cryptoTokenId : String
+- userId : String
+- amount : double
+}
+
+class UserModel {
+- name : String
+- id : String
+- email : String
+- password : String
+}
+
+
+class UpdateCryptoTokenRequest {
+
+}
+
+class UpdateCryptoTokenResult {
+
+}
+
+class CreateCryptoTokenRequest {
+
+}
+
+class CreateCryptoTokenResult {
+
+}
+
+class GetCryptoTokenRequest {
+
+}
+
+class GetCryptoTokenResult {
+
+}
+
+class CreateCryptoTokenUserRequest {
+
+}
+
+class CreateCryptoTokenUserResult {
+
+}
+
+class UpdateCryptoTokenUserRequest {
+
+}
+
+class UpdateCryptoTokenUserResult{
+
+}
+
+class GetCryptoTokenUserRequest {
+
+}
+
+class GetCryptoTokenUserResult {
+
+}
+
+class CreateUserActivityRequest {
+
+}
+
+class CreateUserActivityResult {
+
+}
+
+class UpdateUserRequest {
+
+}
+
+class UpdateUserResult {
+
+}
+
+class GetUserRequest {
+
+}
+
+class GetUserResult {
+
+}
