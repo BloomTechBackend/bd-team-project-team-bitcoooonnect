@@ -2,13 +2,13 @@
 class CryptoToken {
 - name : String
 - id : String
-- price : float
+- price : Double
 }
 
 class CryptoTokenUser {
 - cryptoTokenId : String
 - userId : String
-- amount : float
+- amount : Double
 }
 
 class User {
@@ -69,6 +69,23 @@ class UpdateUserActivity {
 class GetUserActivity {
 
 }
+
+
+
+CryptoToken --* CryptoTokenUser
+CryptoTokenUser *-- User
+
+CryptoTokenDao --o UpdateCryptoTokenActivity
+CryptoTokenDao --o GetCryptoTokenActivity
+CryptoTokenDao --o CreateCryptoTokenActivity
+
+CryptoTokenUserDao --o UpdateCryptoTokenUserActivity
+CryptoTokenUserDao --o GetCryptoTokenUserActivity
+CryptoTokenUserDao --o CreateCryptoTokenUserActivity
+
+UserDao --o UpdateUserActivity
+UserDao --o CreateUserActivity
+UserDao --o GetUserActivity
 
 
 
