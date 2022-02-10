@@ -1,11 +1,5 @@
 # Team Bitcoooonnect Team Charter
 
-## Instructions
-
-*Answer the questions below and fill out the process sections with your team’s
-mechanisms to follow your answers. Remove the italicized examples text as you
-go.*
-
 ## Purpose
 
 As we learned from the reading, highly performing teams have the following

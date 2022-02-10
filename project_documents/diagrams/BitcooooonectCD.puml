@@ -1,3 +1,76 @@
 @startuml
+class CryptoToken {
+- name : String
+- id : String
+- price : float
+}
+
+class CryptoTokenUser {
+- cryptoTokenId : String
+- userId : String
+- amount : float
+}
+
+class User {
+- name : String
+- id : String
+- email : String
+- password : String
+}
+
+class CryptoTokenDao {
+- dynamoDBMapper : DynamoDBMapper
+}
+
+class CoinGeckoAPIClient {
+
+}
+
+class UserDao {
+- dynamoDBMapper : DynamoDBMapper
+}
+
+class CryptoTokenUserDao {
+- dynamoDBMapper : DynamoDBMapper
+}
+
+class UpdateCryptoTokenActivity {
+
+}
+
+class CreateCryptoTokenActivity {
+
+}
+
+class GetCryptoTokenActivity {
+
+}
+
+class CreateCryptoTokenUserActivity {
+
+}
+
+class UpdateCryptoTokenUserActivity {
+
+}
+
+class GetCryptoTokenUserActivity {
+
+}
+
+class CreateUserActivity {
+
+}
+
+class UpdateUserActivity {
+
+}
+
+class GetUserActivity {
+
+}
+
+
+
 
 @enduml
