@@ -55,29 +55,41 @@ Our user authentication will be basic, simply matching the user inputted email a
 
 ## 6.1. Public Models
 
-*Define the data models your service will expose in its responses via your
-*`-Model`* package. These will be equivalent to the *`PlaylistModel`* and
-*`SongModel`* from the Unit 3 project.*
+```
+CoinModel
 
-## 6.2. *First Endpoint*
+id // partition key, string
+name // string
+price // double
+```
 
-*Describe the behavior of the first endpoint you will build into your service
-API. This should include what data it requires, what data it returns, and how it
-will handle any known failure cases. You should also include a sequence diagram
-showing how a user interaction goes from user to website to service to database,
-and back. This first endpoint can serve as a template for subsequent endpoints.
-(If there is a significant difference on a subsequent endpoint, review that with
-your team before building it!)*
+```
+UserModel
 
-*(You should have a separate section for each of the endpoints you are expecting
-to build...)*
+authToken // partition key string
+name // string
+coins // list [[coinId, amount], ...]
+```
 
-## 6.3 *Second Endpoint*
+## 6.2 Public EndPoints
 
-*(repeat, but you can use shorthand here, indicating what is different, likely
-primarily the data in/out and error conditions. If the sequence diagram is
-nearly identical, you can say in a few words how it is the same/different from
-the first endpoint)*
+### 6.2.1 Get portfolio Endpoint
+  * Accepts `Get` requests to `/portfolio`
+  * returns User's portfolio.
+  * If the given User ID is not found, will throw a `UserNotFoundException`
+### 6.2.2 Update portfolio Endpoint
+  * Accepts `Post` requests to `/portfolio` 
+  * Accepts other required data: coin, amount, authToken
+    * if authToken is not found will throw an `UserNotFoundException`
+    * if the amount not greater than 0 will throw an `InvalidAttributeValueException`
+    * if the coin is not found will throw a `CoinNotFoundException`
+  * returns newly created CryptoTokenUser
+### 6.2.3 Create User Endpoint
+  * Accepts `POST` requests to `/users`
+  * Accepts other optional data: name
+    * if not not provided, name will be generated for the user
+  * return new created user along with authToken
+
 
 # 7. Tables
 ### 7.1. `crypto_token`
