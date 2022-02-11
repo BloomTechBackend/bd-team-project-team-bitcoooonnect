@@ -41,15 +41,15 @@ and the price($USD). Customers can update their portfolio to reflect their actua
 
 ![BitcoooonectCD](diagrams/BitcoooonectCD1.png)
 
-This initial iteration will provide the minimum viable product (maybe loveable) including creating a user, retrieving user adding tokens, retrieving tokens, updating tokens in portfolio, updating token values, and retrieving prices from an external API.
+This initial iteration will provide the minimum viable product (maybe loveable) including creating a user, retrieving user, adding tokens, retrieving and updating tokens in portfolio, updating token amount, and retrieving prices from an external API.
 
-We will use API Gateway and Lambda to create nine endpoints (`UpdateCryptoTokenActivity`, `CreateCryptoTokenActivity`, `GetCryptoTokenActivity`, `CreateUserActivity`, `UpdateUserActivity`, `GetUserActivity`, `CreateCryptoTokenUserActivity`, `UpdateCryptoTokenUserActivity`, `GetCryptoTokenUserActivity`)
+We will use API Gateway and Lambda to create three endpoints (`CreateUserActivity`,`UpdateUserUserActivity`, `GetUserActivity`)
 
-We will store user information, crypto token information, and user crypto token information in tables in DynamoDB. Although we could retrieve most crypto token information from an external source via an API, we believe it will be better to seed our program with token information to reduce reliance on outside services (mostly the number of calls we will be making to external APIs). We will be utilizing the "CoinGecko" to retrieve the latest prices on a users holdings at the time of a get request.
+We will store user and coin information in tables in DynamoDB. We will be utilizing the "CoinGecko" to retrieve the latest prices on an interval(every sixty seconds).
 
-Bitcoooonnect will also provide a front-end interface for users to manage their crypto portfolios. Initially this will be a login screen, an overall portfolio view page showing their holdings, the amounts, and prices, and a menu to add new a token to their holdings or update the amount of an existing holding.
+Bitcoooonnect will provide a front-end interface for users to manage their crypto portfolios. Initially this will be a login screen, an overall portfolio view page showing their holdings, the amounts, and prices, and a menu to add new a token to their holdings or update the amount of an existing holding.
 
-Our user authentication will be basic, simply matching the user inputted email and password on our front-end interface against the records stored in our user table in DynamoDB.
+Our user authentication will be basic, will be authenticating user by an authentication token from DynamoDB.
 
 # 6. API
 
@@ -58,7 +58,7 @@ Our user authentication will be basic, simply matching the user inputted email a
 ```
 CoinModel
 
-id // partition key, string
+id // string
 name // string
 price // double
 ```
@@ -83,7 +83,7 @@ coins // list [[coinId, amount], ...]
     * if authToken is not found will throw an `UserNotFoundException`
     * if the amount not greater than 0 will throw an `InvalidAttributeValueException`
     * if the coin is not found will throw a `CoinNotFoundException`
-  * returns newly created CryptoTokenUser
+  * returns newly created UserUser
 ### 6.2.3 Create User Endpoint
   * Accepts `POST` requests to `/users`
   * Accepts other optional data: name
@@ -92,26 +92,18 @@ coins // list [[coinId, amount], ...]
 
 
 # 7. Tables
-### 7.1. `crypto_token`
+### 7.1. `coin`
 ```
 id // partition key, string
-price // sort key, number
 name // string
-```
-
-### 7.2. `crypto_token_user`
-```
-userId // partition key, string
-cryptoTokenId // sort key, string
-amount // number
+price // number
 ```
 
 ### 7.3. `user`
 ```
-id // partition key, string
+authToken // partition key string
 name // string
-email // string
-password // string
+coins // list [[coinId, amount], ...]
 ```
 
 # 8. Pages
