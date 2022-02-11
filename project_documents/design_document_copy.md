@@ -39,7 +39,7 @@ and the price($USD). Customers can update their portfolio to reflect their actua
 
 # 5. Proposed Architecture Overview
 
-![BitcoooonectCD](diagrams/BitcoooonectCD.png)
+![BitcoooonectCD](diagrams/BitcoooonectCD1.png)
 
 This initial iteration will provide the minimum viable product (maybe loveable) including creating a user, retrieving user adding tokens, retrieving tokens, updating tokens in portfolio, updating token values, and retrieving prices from an external API.
 
