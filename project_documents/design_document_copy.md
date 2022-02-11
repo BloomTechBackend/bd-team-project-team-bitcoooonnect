@@ -39,16 +39,17 @@ and the price($USD). Customers can update their portfolio to reflect their actua
 
 # 5. Proposed Architecture Overview
 
-*Describe broadly how you are proposing to solve for the requirements you
-described in Section 2.*
+![BitcoooonectCD](diagrams/BitcoooonectCD.png)
 
-*This may include class diagram(s) showing what components you are planning to
-build.*
+This initial iteration will provide the minimum viable product (maybe loveable) including creating a user, retrieving user adding tokens, retrieving tokens, updating tokens in portfolio, updating token values, and retrieving prices from an external API.
 
-*You should argue why this architecture (organization of components) is
-reasonable. That is, why it represents a good data flow and a good separation of
-concerns. Where applicable, argue why this architecture satisfies the stated
-requirements.*
+We will use API Gateway and Lambda to create nine endpoints (`UpdateCryptoTokenActivity`, `CreateCryptoTokenActivity`, `GetCryptoTokenActivity`, `CreateUserActivity`, `UpdateUserActivity`, `GetUserActivity`, `CreateCryptoTokenUserActivity`, `UpdateCryptoTokenUserActivity`, `GetCryptoTokenUserActivity`)
+
+We will store user information, crypto token information, and user crypto token information in tables in DynamoDB. Although we could retrieve most crypto token information from an external source via an API, we believe it will be better to seed our program with token information to reduce reliance on outside services (mostly the number of calls we will be making to external APIs). We will be utilizing the "CoinGecko" to retrieve the latest prices on a users holdings at the time of a get request.
+
+Bitcoooonnect will also provide a front-end interface for users to manage their crypto portfolios. Initially this will be a login screen, an overall portfolio view page showing their holdings, the amounts, and prices, and a menu to add new a token to their holdings or update the amount of an existing holding.
+
+Our user authentication will be basic, simply matching the user inputted email and password on our front-end interface against the records stored in our user table in DynamoDB.
 
 # 6. API
 
@@ -79,11 +80,27 @@ nearly identical, you can say in a few words how it is the same/different from
 the first endpoint)*
 
 # 7. Tables
+### 7.1. `crypto_token`
+```
+id // partition key, string
+price // sort key, number
+name // string
+```
 
-*Define the DynamoDB tables you will need for the data your service will use. It
-may be helpful to first think of what objects your service will need, then
-translate that to a table structure, like with the *`Playlist` POJO* versus the
-`playlists` table in the Unit 3 project.*
+### 7.2. `crypto_token_user`
+```
+userId // partition key, string
+cryptoTokenId // sort key, string
+amount // number
+```
+
+### 7.3. `user`
+```
+id // partition key, string
+name // string
+email // string
+password // string
+```
 
 # 8. Pages
 
