@@ -45,51 +45,72 @@ and the price($USD). Customers can update their portfolio to reflect their actua
 
 # 5. Proposed Architecture Overview
 
-*Describe broadly how you are proposing to solve for the requirements you
-described in Section 2.*
+![BitcoooonectCD](diagrams/BitcoooonectCD1.png)
 
-*This may include class diagram(s) showing what components you are planning to
-build.*
+This initial iteration will provide the minimum viable product (maybe loveable) including creating a user, retrieving user, adding tokens, retrieving and updating tokens in portfolio, updating token amount, and retrieving prices from an external API.
 
-*You should argue why this architecture (organization of components) is
-reasonable. That is, why it represents a good data flow and a good separation of
-concerns. Where applicable, argue why this architecture satisfies the stated
-requirements.*
+We will use API Gateway and Lambda to create three endpoints (`CreateUserActivity`,`UpdateUserUserActivity`, `GetUserActivity`)
+
+We will store user and coin information in tables in DynamoDB. We will be utilizing the "CoinGecko" to retrieve the latest prices on an interval(every sixty seconds).
+
+Bitcoooonnect will provide a front-end interface for users to manage their crypto portfolios. Initially this will be a login screen, an overall portfolio view page showing their holdings, the amounts, and prices, and a menu to add new a token to their holdings or update the amount of an existing holding.
+
+Our user authentication will be basic, will be authenticating user by an authentication token from DynamoDB.
 
 # 6. API
 
 ## 6.1. Public Models
 
-*Define the data models your service will expose in its responses via your
-*`-Model`* package. These will be equivalent to the *`PlaylistModel`* and
-*`SongModel`* from the Unit 3 project.*
+```
+CoinModel
 
-## 6.2. *First Endpoint*
+id // string
+name // string
+price // double
+```
 
-*Describe the behavior of the first endpoint you will build into your service
-API. This should include what data it requires, what data it returns, and how it
-will handle any known failure cases. You should also include a sequence diagram
-showing how a user interaction goes from user to website to service to database,
-and back. This first endpoint can serve as a template for subsequent endpoints.
-(If there is a significant difference on a subsequent endpoint, review that with
-your team before building it!)*
+```
+UserModel
 
-*(You should have a separate section for each of the endpoints you are expecting
-to build...)*
+authToken // partition key string
+name // string
+coins // list [[coinId, amount], ...]
+```
 
-## 6.3 *Second Endpoint*
+## 6.2 Public EndPoints
 
-*(repeat, but you can use shorthand here, indicating what is different, likely
-primarily the data in/out and error conditions. If the sequence diagram is
-nearly identical, you can say in a few words how it is the same/different from
-the first endpoint)*
+### 6.2.1 Get portfolio Endpoint
+  * Accepts `Get` requests to `/portfolio`
+  * returns User's portfolio.
+  * If the given User ID is not found, will throw a `UserNotFoundException`
+### 6.2.2 Update portfolio Endpoint
+  * Accepts `Post` requests to `/portfolio` 
+  * Accepts other required data: coin, amount, authToken
+    * if authToken is not found will throw an `UserNotFoundException`
+    * if the amount not greater than 0 will throw an `InvalidAttributeValueException`
+    * if the coin is not found will throw a `CoinNotFoundException`
+  * returns newly created UserUser
+### 6.2.3 Create User Endpoint
+  * Accepts `POST` requests to `/users`
+  * Accepts other optional data: name
+    * if not not provided, name will be generated for the user
+  * return new created user along with authToken
+
 
 # 7. Tables
+### 7.1. `coin`
+```
+id // partition key, string
+name // string
+price // number
+```
 
-*Define the DynamoDB tables you will need for the data your service will use. It
-may be helpful to first think of what objects your service will need, then
-translate that to a table structure, like with the *`Playlist` POJO* versus the
-`playlists` table in the Unit 3 project.*
+### 7.3. `user`
+```
+authToken // partition key string
+name // string
+coins // list [[coinId, amount], ...]
+```
 
 # 8. Pages
 

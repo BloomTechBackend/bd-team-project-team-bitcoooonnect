@@ -1,24 +1,17 @@
 @startuml
-class CryptoToken {
-- name : String
+class Coin {
 - id : String
+- name : String
 - price : Double
 }
 
-class CryptoTokenUser {
-- cryptoTokenId : String
-- userId : String
-- amount : Double
-}
-
 class User {
+- authToken : String
 - name : String
-- id : String
-- email : String
-- password : String
+- coins : ArrayList
 }
 
-class CryptoTokenDao {
+class CoinDao {
 - dynamoDBMapper : DynamoDBMapper
 }
 
@@ -28,34 +21,6 @@ class CoinGeckoAPIClient {
 
 class UserDao {
 - dynamoDBMapper : DynamoDBMapper
-}
-
-class CryptoTokenUserDao {
-- dynamoDBMapper : DynamoDBMapper
-}
-
-class UpdateCryptoTokenActivity {
-
-}
-
-class CreateCryptoTokenActivity {
-
-}
-
-class GetCryptoTokenActivity {
-
-}
-
-class CreateCryptoTokenUserActivity {
-
-}
-
-class UpdateCryptoTokenUserActivity {
-
-}
-
-class GetCryptoTokenUserActivity {
-
 }
 
 class CreateUserActivity {
@@ -70,24 +35,8 @@ class GetUserActivity {
 
 }
 
-
-
-CryptoToken --* CryptoTokenUser
-CryptoTokenUser *-- User
-
-CryptoTokenDao --o UpdateCryptoTokenActivity
-CryptoTokenDao --o GetCryptoTokenActivity
-CryptoTokenDao --o CreateCryptoTokenActivity
-
-CryptoTokenUserDao --o UpdateCryptoTokenUserActivity
-CryptoTokenUserDao --o GetCryptoTokenUserActivity
-CryptoTokenUserDao --o CreateCryptoTokenUserActivity
-
 UserDao --o UpdateUserActivity
 UserDao --o CreateUserActivity
 UserDao --o GetUserActivity
-
-
-
 
 @enduml
