@@ -80,11 +80,11 @@ coins // list [[coinId, amount], ...]
 ## 6.2 Public EndPoints
 
 ### 6.2.1 Get portfolio Endpoint
-  * Accepts `Get` requests to `/portfolio`
+  * Accepts `GET` requests to `/portfolio`
   * returns User's portfolio.
   * If the given User ID is not found, will throw a `UserNotFoundException`
 ### 6.2.2 Update portfolio Endpoint
-  * Accepts `Post` requests to `/portfolio` 
+  * Accepts `PUT` requests to `/portfolio` 
   * Accepts other required data: coin, amount, authToken
     * if authToken is not found will throw an `UserNotFoundException`
     * if the amount not greater than 0 will throw an `InvalidAttributeValueException`
