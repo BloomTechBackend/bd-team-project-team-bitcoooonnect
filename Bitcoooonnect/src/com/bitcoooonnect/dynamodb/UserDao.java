@@ -10,7 +10,7 @@ public class UserDao {
         this.dynamoDBMapper = dynamoDBMapper;
     }
 
-    public User getUser(){}
-
-    public User saveUser(){}
+//    public User getUser(){}
+//
+//    public User saveUser(){}
 }
