@@ -7,7 +7,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import java.util.HashMap;
 import java.util.Map;
 
-@DynamoDBTable(tableName = "user")
+@DynamoDBTable(tableName = "users")
 public class User {
     private String id;
     private String name;
