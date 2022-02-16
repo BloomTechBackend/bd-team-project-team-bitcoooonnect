@@ -2,7 +2,9 @@ table {
   border-collapse: collapse;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
 }
 
@@ -10,7 +12,8 @@ th {
   background: #99ccff;
 }
 
-th, td {
+th,
+td {
   padding: 6px;
 }
 
@@ -18,11 +21,13 @@ body {
   background: #fff;
   padding: 0px;
   margin: 0px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-input, button {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+input,
+button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 1px;
 }
 
 .main-div {
