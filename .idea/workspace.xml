@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b56df9a-d54c-48e0-a34c-d22e71454ab5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/activity/CreateUserActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/converters/ModelConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/dependency/DaoModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/dependency/ServiceComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/lambda/CreateUserActivityProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/models/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/models/requests/CreateUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/models/results/CreateUserResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitcoooonnect/.idea/libraries/ATAResources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitcoooonnect/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Bitcoooonnect/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/dynamodb/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/dynamodb/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/dynamodb/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/dynamodb/models/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +36,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="corretto-11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dynamodb-design-and-usage-EvanPollak" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Bitcoooonnect" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -39,5 +51,16 @@
       <updated>1644876671407</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
