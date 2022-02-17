@@ -5,17 +5,99 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b56df9a-d54c-48e0-a34c-d22e71454ab5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/CoinGeckoApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/CoinGeckoApiClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/CoinGeckoApiError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/CoinGeckoApiService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/constant/Currency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/constant/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/AssetPlatforms.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/CodeAdditionsDeletions4Weeks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/CommunityData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/DeveloperData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/IcoData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/Links.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/Links_.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/PublicInterestStats.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/ReposUrl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/Roi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinData/SparklineIn7d.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinFullData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinHistoryById.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinMarkets.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/CoinTickerById.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/MarketChart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Coins/MarketData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Events/EventCountries.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Events/EventCountryData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Events/EventData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Events/EventTypes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Events/Events.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/ExchangeRates/ExchangeRates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/ExchangeRates/Rate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Exchanges/ExchangeById.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Exchanges/Exchanges.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Exchanges/ExchangesList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Exchanges/ExchangesTickersById.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Global/DecentralizedFinanceDefi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Global/DecentralizedFinanceDefiData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Global/Global.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Global/GlobalData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Ping.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Search/Trending.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Search/TrendingCoin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Search/TrendingCoinItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Shared/Image.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Shared/Market.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Shared/Ticker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Status/Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Status/StatusUpdates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/domain/Status/Update.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/exception/CoinGeckoApiException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/main/java/com/litesoftwares/coingecko/impl/CoinGeckoApiClientImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/AssetPlatformsExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/CoinsExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/DecentralizedFinanceDefiExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/EventsExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/ExchangeRatesExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/ExchangesExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/GlobalExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/PingExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/SimpleExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/StatusUpdatesExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoinGecko-Java-master/src/test/java/com/litesoftwares/coingecko/examples/TrendingExample.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="257SXXmxwF4RGhXCgXK0fNT3t2S" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,10 +106,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="corretto-11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dynamodb-design-and-usage-EvanPollak" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.27901024" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -39,5 +121,16 @@
       <updated>1644876671407</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
