@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b56df9a-d54c-48e0-a34c-d22e71454ab5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Bitcoooonnect/configurations/tables.template.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitcoooonnect/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Bitcoooonnect/.idea/aws.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/dynamodb/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Bitcoooonnect/src/com/bitcoooonnect/dynamodb/models/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
