@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CoinGeckoApiClient/CoinGeckoApiClient.iml" filepath="$PROJECT_DIR$/CoinGeckoApiClient/CoinGeckoApiClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/bd-team-project-team-bitcoooonnect.iml" filepath="$PROJECT_DIR$/.idea/bd-team-project-team-bitcoooonnect.iml" />
     </modules>
   </component>

@@ -4,20 +4,20 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js" defer></script>
-    <title>Fun with JS!</title>
+    <title>Bitcoooonect</title>
   </head>
   <body>
 
     <div class="main-div">
       <h2>Bitcoooonect</h2>
-      <input type="email" placeholder="Email"/>
-      <input type="password" placeholder="Password" />
-      <button>Create an Account</button>
-      <button>Login to Account</button>
+      <input type="email" placeholder="Email" id="username"/>
+      <input type="password" placeholder="Password" id="password" />
+      <button onclick="createAccount()">Create an Account</button>
+      <button onclick="validateAccount()">Login to Account</button>
+
     </div>
-    <ul id="playlists">
-    </ul>
-     
+    
+    <!--
     <h2>login</h2>
     <form class="card-content" id="create-playlist-form">
       <label>Playlist Name
@@ -28,5 +28,8 @@
       </label>
       <input type="submit" id="create" value="Create">
     </form>
+    -->
   </body>
+    
 </html>
+
