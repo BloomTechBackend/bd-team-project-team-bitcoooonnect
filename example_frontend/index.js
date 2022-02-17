@@ -2,6 +2,9 @@ const playlistForm = document.querySelector("#create-playlist-form");
 const playlistsList = document.querySelector("#playlists");
 const username = document.querySelector("#playlists");
 const password = document.querySelector("#playlists");
+let globalTruth = {
+  status: "false"
+};
 
 playlistForm.onsubmit = async function(evt) {
   evt.preventDefault();
@@ -71,6 +74,8 @@ function validateAccount(){
     console.log(res);
     if (res.data.statusCode === 200) {
       window.location.replace("./portfolio.html");
+      localStorage.setItem('myCat', 'Tom');
+      var cat = localStorage.getItem('myCat');
 
     } else {
       alert("Invalid information");
