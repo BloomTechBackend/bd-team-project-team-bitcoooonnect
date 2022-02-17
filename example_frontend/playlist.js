@@ -2,7 +2,8 @@ const addAlbumTrackForm = document.querySelector("#add-album-track-form");
 const albumTrackTable = document.querySelector("#album-track-table");
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
-
+//import { globalTruth } from './index.js'
+/*
 addAlbumTrackForm.onsubmit = function(evt) {
   evt.preventDefault();
   const asin = document.querySelector("#album-asin").value;
@@ -62,4 +63,11 @@ function populateAlbumTracks(albumTracksData) {
       cell.appendChild(text);
     }
   }
+}
+*/
+
+function globalTest() {
+  var cat = localStorage.getItem('myCat');
+  console.log(cat);
+  localStorage.clear();
 }
