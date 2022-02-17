@@ -6,25 +6,6 @@ let globalTruth = {
   status: "false"
 };
 
-playlistForm.onsubmit = async function(evt) {
-  evt.preventDefault();
-  const name = document.querySelector("#playlist-name").value;
-  const customerId = "testCustomer";
-  const playlistObj = {
-    "name": name,
-    "customerId": customerId,
-    "songCount": 0
-  }
-  axios.post("https://svebsuap66.execute-api.us-west-2.amazonaws.com/prod/playlists", playlistObj, {
-    authorization: {
-      'x-api-key': 'K7CHRL6aqt1C6eGJ9EHyFaZCn86G0fyI2sTZKSkW'
-    }
-  }).then((res) => {
-    console.log(res);
-    window.location.reload();
-  })
-}
-
 window.onload = async function(evt) {
   evt.preventDefault();
   console.log("Getting Playlist Data...");
@@ -81,6 +62,35 @@ function validateAccount(){
       alert("Invalid information");
     }
   })
+}
 
+function createAccount() {
+  //Grabs username and passowrd from document to be used as parameters for API
+  let username = "user_email="+document.getElementById("username").value;
+  let password = "&password="+document.getElementById("password").value;
+  //let username = "user_email="+"john.smith@gmail.com";
+  //let password = "&password="+"password";
+  
+  let string1 = "https://cl9rje8xdi.execute-api.us-east-2.amazonaws.com/prod/user_profile?"+username+password;
+  //let string2 = "https://cl9rje8xdi.execute-api.us-east-2.amazonaws.com/prod/user_profile?user_email=john.smith@gmail.com&password=password";
+
+  console.log(string1);
+
+  const userObj = {
+    "name": username,
+    "password": password
+  }
+
+  axios.post(string1).then((res) => {
+    console.log(res);
+    if (res.data.statusCode === 200) {
+      window.location.replace("./portfolio.html");
+      localStorage.setItem('myCat', 'Tom');
+      var cat = localStorage.getItem('myCat');
+
+    } else {
+      alert("Invalid information");
+    }
+  })
   
 }
