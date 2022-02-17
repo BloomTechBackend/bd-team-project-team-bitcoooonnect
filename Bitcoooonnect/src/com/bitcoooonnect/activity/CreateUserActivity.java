@@ -14,6 +14,9 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import javax.inject.Inject;
 
 public class CreateUserActivity implements RequestHandler<CreateUserRequest, CreateUserResult> {
@@ -29,12 +32,14 @@ public class CreateUserActivity implements RequestHandler<CreateUserRequest, Cre
     public CreateUserResult handleRequest(final CreateUserRequest createUserRequest, Context context) {
 //        log.info("Received CreateUserRequest {}", CreateUserRequest);
 
-        String requestedId = createUserRequest.getId();
-        String requestedName = createUserRequest.getName();
+        String newUserId = RandomStringUtils.randomAlphanumeric(10);
+        String requestedEmail = createUserRequest.getEmail();
+        String requestedPassword = createUserRequest.getName();
 
         User user = new User();
-        user.setId(requestedId);
-        user.setName(requestedName);
+        user.setId(newUserId);
+        user.setEmail(requestedEmail);
+        user.setPassword(requestedPassword);
         user.setCoins(null);
 
         userDao.saveUser(user);

@@ -6,7 +6,8 @@ import java.util.Objects;
 
 public class UserModel {
     private String id;
-    private String name;
+    private String email;
+    private String password;
     private Map<String, Double> coins = new HashMap<>();
 
     public UserModel() {
@@ -15,7 +16,8 @@ public class UserModel {
 
     public UserModel(Builder builder) {
         this.id = builder.id;
-        this.name = builder.name;
+        this.email = builder.email;
+        this.password = builder.password;
         this.coins = builder.coins;
     }
 
@@ -27,12 +29,20 @@ public class UserModel {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Map<String, Double> getCoins() {
@@ -48,19 +58,19 @@ public class UserModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserModel userModel = (UserModel) o;
-        return getId().equals(userModel.getId()) && Objects.equals(getName(), userModel.getName()) && Objects.equals(getCoins(), userModel.getCoins());
+        return getEmail().equals(userModel.getEmail()) && Objects.equals(getPassword(), userModel.getPassword()) && Objects.equals(getCoins(), userModel.getCoins());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getCoins());
+        return Objects.hash(getEmail(), getPassword(), getCoins());
     }
 
     @Override
     public String toString() {
         return "UserModel{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "id='" + email + '\'' +
+                ", name='" + password + '\'' +
                 ", coins=" + coins +
                 '}';
     }
@@ -69,7 +79,8 @@ public class UserModel {
 
     public static final class Builder {
         private String id;
-        private String name;
+        private String email;
+        private String password;
         private Map<String, Double> coins = new HashMap<>();
 
         public Builder withId(String idToUse) {
@@ -77,8 +88,13 @@ public class UserModel {
             return this;
         }
 
-        public Builder withName(String nameToUse) {
-            this.name = name;
+        public Builder withEmail(String emailToUse) {
+            this.email = emailToUse;
+            return this;
+        }
+
+        public Builder withPassword(String passwordToUse) {
+            this.password = passwordToUse;
             return this;
         }
 

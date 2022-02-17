@@ -3,11 +3,11 @@ package com.bitcoooonnect.models.requests;
 import java.util.Objects;
 
 public class CreateUserRequest {
-    private String id;
+    private String email;
     private String name;
 
     public CreateUserRequest(String id, String name) {
-        this.id = id;
+        this.email = id;
         this.name = name;
     }
 
@@ -16,16 +16,16 @@ public class CreateUserRequest {
     }
 
     public CreateUserRequest(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
+        this.email = builder.email;
+        this.name = builder.password;
     }
 
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -41,18 +41,18 @@ public class CreateUserRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CreateUserRequest that = (CreateUserRequest) o;
-        return getId().equals(that.getId()) && Objects.equals(getName(), that.getName());
+        return getEmail().equals(that.getEmail()) && Objects.equals(getName(), that.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName());
+        return Objects.hash(getEmail(), getName());
     }
 
     @Override
     public String toString() {
         return "CreateUserRequest{" +
-                "id='" + id + '\'' +
+                "id='" + email + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }
@@ -62,20 +62,20 @@ public class CreateUserRequest {
     }
 
     public static final class Builder {
-        private String id;
-        private String name;
+        private String email;
+        private String password;
 
         private Builder() {
 
         }
 
-        public Builder withId(String IdToUse) {
-            this.id = IdToUse;
+        public Builder withEmailToUse(String emailToUse) {
+            this.email = emailToUse;
             return this;
         }
 
-        public Builder withName(String nameToUse) {
-            this.name = nameToUse;
+        public Builder withPassword(String passwordToUse) {
+            this.password = passwordToUse;
             return this;
         }
 
