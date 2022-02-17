@@ -1,8 +1,5 @@
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.squareup.moshi.JsonAdapter;
@@ -15,18 +12,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 public class ApiClient {
     public static void main(String[] args) throws Exception {
 //        runAllInitCoinList();
-//        run()
     }
     public static void run() throws Exception {
         final OkHttpClient client = new OkHttpClient();
