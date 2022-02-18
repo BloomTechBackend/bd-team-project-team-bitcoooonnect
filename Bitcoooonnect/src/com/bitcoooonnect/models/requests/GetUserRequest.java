@@ -1,21 +1,23 @@
 package com.bitcoooonnect.models.requests;
 
+import com.amazonaws.services.dynamodbv2.model.Get;
+
 import java.util.Objects;
 
-public class CreateUserRequest {
+public class GetUserRequest {
     private String email;
     private String password;
 
-    public CreateUserRequest(String email, String password) {
+    public GetUserRequest(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public CreateUserRequest() {
+    public GetUserRequest() {
 
     }
 
-    public CreateUserRequest(Builder builder) {
+    public GetUserRequest(Builder builder) {
         this.email = builder.email;
         this.password = builder.password;
     }
@@ -40,20 +42,20 @@ public class CreateUserRequest {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CreateUserRequest that = (CreateUserRequest) o;
-        return getEmail().equals(that.getEmail()) && Objects.equals(getPassword(), that.getPassword());
+        GetUserRequest that = (GetUserRequest) o;
+        return email.equals(that.email) && Objects.equals(password, that.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getEmail(), getPassword());
+        return Objects.hash(email, password);
     }
 
     @Override
     public String toString() {
-        return "CreateUserRequest{" +
-                "id='" + email + '\'' +
-                ", name='" + password + '\'' +
+        return "GetUserRequest{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -74,16 +76,14 @@ public class CreateUserRequest {
             return this;
         }
 
-        public Builder withPassword(String passwordToUse) {
-            this.password = passwordToUse;
+        public Builder withPassWordToUse(String passWordToUse) {
+            this.password = passWordToUse;
             return this;
         }
 
-        public CreateUserRequest build() {
-            return new CreateUserRequest(this);
+
+        public GetUserRequest build() {
+            return new GetUserRequest(this);
         }
     }
 }
-
-
-

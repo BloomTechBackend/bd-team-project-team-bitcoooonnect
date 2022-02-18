@@ -8,14 +8,12 @@ public class ModelConverter {
     public UserModel toUserModel(User user) {
         if(user.getCoins() == null) {
             return UserModel.builder()
-                    .withId(user.getId())
                     .withEmail(user.getEmail())
                     .withPassword(user.getPassword())
                     .withCoins(null)
                     .build();
         }
         return UserModel.builder()
-                .withId(user.getId())
                 .withEmail(user.getEmail())
                 .withPassword(user.getPassword())
                 .withCoins(user.getCoins())

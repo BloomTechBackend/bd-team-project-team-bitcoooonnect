@@ -13,8 +13,11 @@ public class UserDao {
         this.dynamoDBMapper = dynamoDBMapper;
     }
 
-//    public User getUser(){}
-//
+    public User getUser(String email){
+        User user = this.dynamoDBMapper.load(User.class, email);
+        return user;
+    }
+
     public User saveUser(User user){
         dynamoDBMapper.save(user);
         return user;

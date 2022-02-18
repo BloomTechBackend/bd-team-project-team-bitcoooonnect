@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class UserModel {
-    private String id;
     private String email;
     private String password;
     private Map<String, Double> coins = new HashMap<>();
@@ -15,19 +14,11 @@ public class UserModel {
     }
 
     public UserModel(Builder builder) {
-        this.id = builder.id;
         this.email = builder.email;
         this.password = builder.password;
         this.coins = builder.coins;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;
@@ -78,15 +69,9 @@ public class UserModel {
     public static Builder builder() { return new Builder(); }
 
     public static final class Builder {
-        private String id;
         private String email;
         private String password;
         private Map<String, Double> coins = new HashMap<>();
-
-        public Builder withId(String idToUse) {
-            this.id = idToUse;
-            return this;
-        }
 
         public Builder withEmail(String emailToUse) {
             this.email = emailToUse;

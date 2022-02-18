@@ -9,21 +9,11 @@ import java.util.Map;
 
 @DynamoDBTable(tableName = "users")
 public class User {
-    private String id;
     private String email;
     private String password;
     private Map<String, Double> coins = new HashMap<>();
 
-    @DynamoDBHashKey(attributeName = "id")
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    @DynamoDBAttribute(attributeName = "email")
+    @DynamoDBHashKey(attributeName = "email")
     public String getEmail() {
         return email;
     }
