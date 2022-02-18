@@ -2,6 +2,7 @@ aws cloudformation create-stack --region us-east-2 --stack-name cryptoservice-cr
 
 sleep 10
 
+aws dynamodb batch-write-item --region us-east-2 --request-items file://user1.json
 aws dynamodb batch-write-item --region us-east-2 --request-items file://coin1.json
 aws dynamodb batch-write-item --region us-east-2 --request-items file://coin2.json
 aws dynamodb batch-write-item --region us-east-2 --request-items file://coin3.json

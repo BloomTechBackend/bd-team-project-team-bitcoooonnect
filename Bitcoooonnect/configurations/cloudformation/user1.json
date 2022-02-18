@@ -1,0 +1,71 @@
+{
+  "users": [
+    {
+      "PutRequest": {
+        "Item": {
+          "email": {
+            "S": "evan@gmail.com"
+          },
+          "password": {
+            "S": "123"
+          },
+           "coins": {
+             "M": {
+               "btc": {
+                 "N": "5.00985"
+               },
+               "eth": {
+                 "N": "25.8"
+               }
+             }
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "email": {
+            "S": "ron@gmail.com"
+          },
+          "password": {
+            "S": "123"
+          },
+          "coins": {
+            "M": {
+              "btc": {
+                "N": "10.98875"
+              },
+              "eth": {
+                "N": "5.238"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "email": {
+            "S": "juan@gmail.com"
+          },
+          "password": {
+            "S": "123"
+          },
+          "coins": {
+            "M": {
+              "btc": {
+                "N": "49.0985"
+              },
+              "eth": {
+                "N": "25.812"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+
