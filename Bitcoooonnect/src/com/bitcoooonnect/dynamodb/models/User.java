@@ -10,7 +10,8 @@ import java.util.Map;
 @DynamoDBTable(tableName = "users")
 public class User {
     private String id;
-    private String name;
+    private String email;
+    private String password;
     private Map<String, Double> coins = new HashMap<>();
 
     @DynamoDBHashKey(attributeName = "id")
@@ -22,13 +23,22 @@ public class User {
         this.id = id;
     }
 
-    @DynamoDBAttribute(attributeName = "name")
-    public String getName() {
-        return name;
+    @DynamoDBAttribute(attributeName = "email")
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @DynamoDBAttribute(attributeName = "password")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @DynamoDBAttribute(attributeName = "coins")

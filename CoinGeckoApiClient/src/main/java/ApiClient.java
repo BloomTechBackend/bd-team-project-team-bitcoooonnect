@@ -1,8 +1,5 @@
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.squareup.moshi.JsonAdapter;
@@ -15,17 +12,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 public class ApiClient {
     public static void main(String[] args) throws Exception {
-        run();
+//        runAllInitCoinList();
     }
     public static void run() throws Exception {
         final OkHttpClient client = new OkHttpClient();
@@ -52,7 +46,17 @@ public class ApiClient {
         }
     }
 
-    public static void initCoinList() throws Exception {
+    public static void runAllInitCoinList() throws Exception {
+        for(int i = 1; i <=10; i++) {
+            initCoinList(Integer.toString(i));
+        }
+    }
+
+    public static void initCoinList(String num) throws Exception {
+        String filename = "src/main/cloudformation/coin" + num + ".json";
+        File newFile = new File(filename);
+        newFile.createNewFile();
+
         final OkHttpClient client = new OkHttpClient();
         final Moshi moshi = new Moshi.Builder().build();
         Type type = Types.newParameterizedType(List.class, Map.class);
@@ -61,7 +65,7 @@ public class ApiClient {
         Request request = new Request.Builder()
                 .url("https://api.coingecko" +
                         ".com/api/v3/coins/markets?vs_currency=usd&per_page" +
-                        "=250")
+                        "=25&page=" + num)
                 .build();
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
@@ -69,7 +73,6 @@ public class ApiClient {
             List<Map<String, Object>> gist =
                     jsonAdapter.fromJson(response.body().source());
 
-            String filename = "src/main/cloudformation/coin.json";
             JSONObject coinsObject = new JSONObject();
 
             JSONArray coinsList = new JSONArray();
@@ -77,12 +80,25 @@ public class ApiClient {
             coinsObject.put("coins", coinsList);
 
             for (Map<String, Object> coin : gist) {
-                JSONObject sampleObject3 = new JSONObject();
-                sampleObject3.put("id", coin.get("symbol"));
-                sampleObject3.put("name", coin.get("id"));
-                sampleObject3.put("price", coin.get("current_price"));
+                JSONObject idDetails= new JSONObject();
+                JSONObject nameDetails = new JSONObject();
+                JSONObject priceDetails = new JSONObject();
+                idDetails.put("S", coin.get("symbol"));
+                nameDetails.put("S", coin.get("id"));
+                priceDetails.put("N", coin.get("current_price").toString());
 
-                coinsList.add(sampleObject3);
+                JSONObject allDetailsObject = new JSONObject();;
+                allDetailsObject.put("id", idDetails);
+                allDetailsObject.put("name", nameDetails);
+                allDetailsObject.put("price", priceDetails);
+
+                JSONObject itemObject = new JSONObject();
+                itemObject.put("Item", allDetailsObject );
+
+                JSONObject putRequestObject = new JSONObject();
+                putRequestObject.put("PutRequest", itemObject);
+
+                coinsList.add(putRequestObject);
             }
             Files.write(Paths.get(filename), coinsObject.toJSONString().getBytes());
         }

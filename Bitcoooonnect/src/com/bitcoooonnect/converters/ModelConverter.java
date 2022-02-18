@@ -9,13 +9,15 @@ public class ModelConverter {
         if(user.getCoins() == null) {
             return UserModel.builder()
                     .withId(user.getId())
-                    .withName(user.getName())
+                    .withEmail(user.getEmail())
+                    .withPassword(user.getPassword())
                     .withCoins(null)
                     .build();
         }
         return UserModel.builder()
                 .withId(user.getId())
-                .withName(user.getName())
+                .withEmail(user.getEmail())
+                .withPassword(user.getPassword())
                 .withCoins(user.getCoins())
                 .build();
     }
