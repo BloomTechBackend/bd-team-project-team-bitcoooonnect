@@ -2,6 +2,7 @@ package com.bitcoooonnect.dependency;
 
 import com.bitcoooonnect.activity.CreateUserActivity;
 import com.bitcoooonnect.activity.GetUserActivity;
+import com.bitcoooonnect.activity.UpdateUserActivity;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -11,4 +12,5 @@ import javax.inject.Singleton;
 public interface ServiceComponent {
     CreateUserActivity providesCreateUserActivity();
     GetUserActivity providesGetUserActivity();
+    UpdateUserActivity providesUpdateUserActivity();
 }
