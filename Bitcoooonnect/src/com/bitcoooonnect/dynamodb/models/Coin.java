@@ -3,7 +3,7 @@ package com.bitcoooonnect.dynamodb.models;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
-@DynamoDBTable(tableName = "users")
+@DynamoDBTable(tableName = "coins")
 public class Coin {
     private String id;
     private String name;

@@ -34,7 +34,7 @@ public class CreateUserActivity implements RequestHandler<CreateUserRequest, Cre
 
         String newUserId = RandomStringUtils.randomAlphanumeric(10);
         String requestedEmail = createUserRequest.getEmail();
-        String requestedPassword = createUserRequest.getName();
+        String requestedPassword = createUserRequest.getPassword();
 
         User user = new User();
         user.setId(newUserId);

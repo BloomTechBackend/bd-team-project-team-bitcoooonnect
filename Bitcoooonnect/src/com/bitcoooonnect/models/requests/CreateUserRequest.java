@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class CreateUserRequest {
     private String email;
-    private String name;
+    private String password;
 
-    public CreateUserRequest(String id, String name) {
+    public CreateUserRequest(String id, String password) {
         this.email = id;
-        this.name = name;
+        this.password = password;
     }
 
     public CreateUserRequest() {
@@ -17,7 +17,7 @@ public class CreateUserRequest {
 
     public CreateUserRequest(Builder builder) {
         this.email = builder.email;
-        this.name = builder.password;
+        this.password = builder.password;
     }
 
     public String getEmail() {
@@ -28,12 +28,12 @@ public class CreateUserRequest {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getPassword() {
+        return password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -41,19 +41,19 @@ public class CreateUserRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CreateUserRequest that = (CreateUserRequest) o;
-        return getEmail().equals(that.getEmail()) && Objects.equals(getName(), that.getName());
+        return getEmail().equals(that.getEmail()) && Objects.equals(getPassword(), that.getPassword());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getEmail(), getName());
+        return Objects.hash(getEmail(), getPassword());
     }
 
     @Override
     public String toString() {
         return "CreateUserRequest{" +
                 "id='" + email + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + password + '\'' +
                 '}';
     }
 
