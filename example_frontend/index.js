@@ -59,21 +59,25 @@ function validateAccount(){
   //let password = "&password="+"password";
   
   let string1 = "https://cl9rje8xdi.execute-api.us-east-2.amazonaws.com/prod/user_profile?"+username+password;
-  //let string2 = "https://cl9rje8xdi.execute-api.us-east-2.amazonaws.com/prod/user_profile?user_email=john.smith@gmail.com&password=password";
-
-  console.log(string1);
+  let string2 = "https://cl9rje8xdi.execute-api.us-east-2.amazonaws.com/prod/user_profile?user_email=john.smith@gmail.com&password=poo";
 
   const userObj = {
     "name": username,
     "password": password
   }
 
-  axios.get(string1).then((res) => {
+  axios.get(string2).then((res) => {
     console.log(res);
     if (res.data.statusCode === 200) {
-      window.location.replace("./portfolio.html");
-      localStorage.setItem('myCat', 'Tom');
-      var cat = localStorage.getItem('myCat');
+      //Native method can only store strings as strings
+      localStorage.setItem('BTC','100');
+      localStorage.setItem('ETH','1');
+      var cat = localStorage.getItem('BTC');
+      console.log(cat)
+      console.log(localStorage.getItem('BTC'))
+      console.log(localStorage.getItem('1'))
+      console.log(localStorage.getItem('ETH'))
+      //window.location.replace("./portfolio.html");
 
     } else {
       alert("Invalid information");
@@ -101,6 +105,7 @@ function createAccount() {
   axios.post(string1).then((res) => {
     console.log(res);
     if (res.data.statusCode === 200) {
+      alert("user created");
       window.location.replace("./portfolio.html");
       localStorage.setItem('myCat', 'Tom');
       var cat = localStorage.getItem('myCat');

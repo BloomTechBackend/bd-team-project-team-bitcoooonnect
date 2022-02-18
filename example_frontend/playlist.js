@@ -67,7 +67,6 @@ function populateAlbumTracks(albumTracksData) {
 */
 
 function globalTest() {
-  var cat = localStorage.getItem('myCat');
+  var cat = localStorage.getItem('BTC');
   console.log(cat);
-  localStorage.clear();
 }
