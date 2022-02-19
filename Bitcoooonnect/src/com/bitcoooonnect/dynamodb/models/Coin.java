@@ -1,5 +1,6 @@
 package com.bitcoooonnect.dynamodb.models;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
@@ -18,7 +19,7 @@ public class Coin {
         this.id = id;
     }
 
-    @DynamoDBHashKey(attributeName = "name")
+    @DynamoDBAttribute(attributeName = "name")
     public String getName() {
         return name;
     }
@@ -27,7 +28,7 @@ public class Coin {
         this.name = name;
     }
 
-    @DynamoDBHashKey(attributeName = "price")
+    @DynamoDBAttribute(attributeName = "price")
     public Double getPrice() {
         return price;
     }
