@@ -14,10 +14,10 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
-
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class GetCoinActivity implements RequestHandler<GetCoinRequest,
         GetCoinResult> {
@@ -51,13 +51,18 @@ public class GetCoinActivity implements RequestHandler<GetCoinRequest,
                                        Context context) {
         log.info("Received GetUserRequest {}", getCoinRequest);
 
-        String requestedId = getCoinRequest.getId();
+        List<String> requestedIds = getCoinRequest.getIds();
 
-        Coin coin = coinDao.getCoin(requestedId);
-        CoinModel coinModel = new ModelConverter().toCoinModel(coin);
+        Map<String, List<Object>> coins = coinDao.getCoin(requestedIds);
+
+        List<CoinModel> coinModels = new ArrayList<>();
+
+        for(Object coin : coins.get("coins") ) {
+            coinModels.add(new ModelConverter().toCoinModel((Coin) coin));
+        }
 
         return GetCoinResult.builder()
-                .withCoin(coinModel)
+                .withCoins(coinModels)
                 .build();
     }
 }

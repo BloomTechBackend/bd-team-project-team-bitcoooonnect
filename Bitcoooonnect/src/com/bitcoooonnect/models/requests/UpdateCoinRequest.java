@@ -1,71 +1,47 @@
 package com.bitcoooonnect.models.requests;
 
-import java.util.Objects;
+import java.util.*;
 
 public class UpdateCoinRequest {
-    private String id;
-    private Double price;
-    private String name;
-    
+    private Map<String, Double> coins = new HashMap<>();
+
     public UpdateCoinRequest() {
         
     }
     
-    public UpdateCoinRequest(String id, Double price, String name) {
-        this.id = id;
-        this.price = price;
-        this.name = name;
+    public UpdateCoinRequest(Map<String, Double> coins) {
+        this.coins = coins;
     }
     
     public UpdateCoinRequest(Builder builder) {
-        this.id = builder.id;
-        this.price = builder.price;
-        this.name = builder.name;
+        this.coins = builder.coins;
     }
 
-    public String getId() {
-        return id;
+    public Map<String, Double> getCoins() {
+        return coins;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCoins(Map<String, Double> coins) {
+        this.coins = coins;
     }
 
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UpdateCoinRequest that = (UpdateCoinRequest) o;
-        return getId().equals(that.getId());
+        return getCoins().equals(that.getCoins());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getCoins());
     }
 
     @Override
     public String toString() {
         return "UpdateCoinRequest{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
+                "coins='" + coins + '\'' +
                 '}';
     }
 
@@ -74,26 +50,19 @@ public class UpdateCoinRequest {
     }
 
     public static final class Builder {
-        private String id;
-        private String name;
-        private Double price;
+        private Map<String, Double> coins = new HashMap<>();
 
         private Builder() {
 
         }
 
-        public UpdateCoinRequest.Builder withId(String id) {
-            this.id = id;
+        public UpdateCoinRequest.Builder withCoins(Map<String, Double> coins) {
+            this.coins = coins;
             return this;
         }
 
-        public UpdateCoinRequest.Builder withName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public UpdateCoinRequest.Builder withPrice(Double price) {
-            this.price = price;
+        public UpdateCoinRequest.Builder withId(Map<String, Double> coins) {
+            this.coins = coins;
             return this;
         }
 

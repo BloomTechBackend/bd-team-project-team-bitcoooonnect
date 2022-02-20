@@ -1,67 +1,45 @@
 package com.bitcoooonnect.models.results;
 
+import com.bitcoooonnect.dynamodb.models.Coin;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UpdateCoinResult {
-    private String id;
-    private Double price;
-    private String name;
+    private Map<String, Double> coins = new HashMap<>();
 
     public UpdateCoinResult(UpdateCoinResult.Builder builder) {
-        this.id = builder.id;
-        this.price = builder.price;
-        this.name = builder.name;
+        this.coins = builder.coins;
     }
 
-    public String getId() {
-        return id;
+    public Map<String, Double> getCoins() {
+        return coins;
     }
 
-    public Double getPrice() {
-        return price;
+    public void setCoins(Map<String, Double> coins) {
+        this.coins = coins;
     }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
     public static UpdateCoinResult.Builder builder(){
         return new UpdateCoinResult.Builder();
     }
 
-    public static final class Builder{
-        private Double price;
-        private String id;
-        private String name;
+    public static final class Builder {
+        private Map<String, Double> coins = new HashMap<>();
 
-        public UpdateCoinResult.Builder withId(String id) {
-            this.id = id;
-            return this;
+        private Builder() {
+
         }
 
-        public UpdateCoinResult.Builder withName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public UpdateCoinResult.Builder withPrice(Double price) {
-            this.price = price;
+        public UpdateCoinResult.Builder withCoins(List<Coin> allCoins) {
+            for (Coin coin : allCoins) {
+                coins.put(coin.getId(), coin.getPrice());
+            }
             return this;
         }
 
         public UpdateCoinResult build() {
             return new UpdateCoinResult(this);
         }
-
     }
 }

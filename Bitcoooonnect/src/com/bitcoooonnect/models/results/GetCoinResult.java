@@ -2,19 +2,21 @@ package com.bitcoooonnect.models.results;
 
 import com.bitcoooonnect.models.CoinModel;
 
+import java.util.List;
+
 public class GetCoinResult {
-    private CoinModel coin;
+    private List<CoinModel> coins;
 
     public GetCoinResult(GetCoinResult.Builder builder) {
-        this.coin = builder.coin;
+        this.coins = builder.coins;
     }
 
-    public CoinModel getCoin() {
-        return coin;
+    public List<CoinModel> getCoins() {
+        return coins;
     }
 
-    public void setCoin(CoinModel coin) {
-        this.coin = coin;
+    public void setCoins(List<CoinModel> coins) {
+        this.coins = coins;
     }
 
     public static GetCoinResult.Builder builder() {
@@ -22,11 +24,11 @@ public class GetCoinResult {
     }
 
     public static final class Builder {
-        private CoinModel coin;
+        private List<CoinModel> coins;
 
 
-        public GetCoinResult.Builder withCoin(CoinModel coin) {
-            this.coin = coin;
+        public GetCoinResult.Builder withCoins(List<CoinModel> coins) {
+            this.coins = coins;
             return this;
         }
 

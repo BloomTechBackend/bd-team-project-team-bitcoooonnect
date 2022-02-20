@@ -5,14 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class GetCoinRequest {
-    private String id;
     private List<String> ids = new ArrayList<>();
-    //  Set<String> ids = new HashSet<String>();
-
-
-    public GetCoinRequest(String id) {
-        this.id = id;
-    }
 
     public GetCoinRequest(List<String> ids) {
         this.ids = ids;
@@ -23,15 +16,15 @@ public class GetCoinRequest {
     }
 
     public GetCoinRequest(Builder builder) {
-        this.id = builder.id;
+        this.ids = builder.ids;
     }
 
-    public String getId() {
-        return id;
+    public List<String> getIds() {
+        return ids;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIds(List<String> ids) {
+        this.ids = ids;
     }
 
     @Override
@@ -39,18 +32,18 @@ public class GetCoinRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GetCoinRequest that = (GetCoinRequest) o;
-        return id.equals(that.id);
+        return ids.equals(that.ids);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(ids);
     }
 
     @Override
     public String toString() {
         return "GetCoinRequest{" +
-                ", id='" + id + '\'' +
+                ", ids='" + ids + '\'' +
                 '}';
     }
 
@@ -59,15 +52,14 @@ public class GetCoinRequest {
     }
 
     public static final class Builder {
-        private String id;
         private List<String> ids = new ArrayList<>();
 
         private Builder() {
 
         }
 
-        public Builder withIdToUse(String id) {
-            this.id = id;
+        public Builder withIdsToUse(List<String> ids) {
+            this.ids = ids;
             return this;
         }
 
