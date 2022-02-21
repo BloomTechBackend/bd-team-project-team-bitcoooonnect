@@ -2,54 +2,54 @@ const playlistForm = document.querySelector("#create-playlist-form");
 const playlistsList = document.querySelector("#playlists");
 const username = document.querySelector("#playlists");
 const password = document.querySelector("#playlists");
-var globalTruth = false;
+// var globalTruth = false;
 
-playlistForm.onsubmit = async function(evt) {
-  evt.preventDefault();
-  const name = document.querySelector("#playlist-name").value;
-  const customerId = "testCustomer";
-  const playlistObj = {
-    "name": name,
-    "customerId": customerId,
-    "songCount": 0
-  }
-  axios.post("https://svebsuap66.execute-api.us-west-2.amazonaws.com/prod/playlists", playlistObj, {
-    authorization: {
-      'x-api-key': 'K7CHRL6aqt1C6eGJ9EHyFaZCn86G0fyI2sTZKSkW'
-    }
-  }).then((res) => {
-    console.log(res);
-    window.location.reload();
-  })
-}
+// playlistForm.onsubmit = async function(evt) {
+//   evt.preventDefault();
+//   const name = document.querySelector("#playlist-name").value;
+//   const customerId = "testCustomer";
+//   const playlistObj = {
+//     "name": name,
+//     "customerId": customerId,
+//     "songCount": 0
+//   }
+//   axios.post("https://svebsuap66.execute-api.us-west-2.amazonaws.com/prod/playlists", playlistObj, {
+//     authorization: {
+//       'x-api-key': 'K7CHRL6aqt1C6eGJ9EHyFaZCn86G0fyI2sTZKSkW'
+//     }
+//   }).then((res) => {
+//     console.log(res);
+//     window.location.reload();
+//   })
+// }
 
-window.onload = async function(evt) {
-  evt.preventDefault();
-  console.log("Getting Playlist Data...");
-  axios.get("https://svebsuap66.execute-api.us-west-2.amazonaws.com/prod/playlists", {
-    authorization: {
-      'x-api-key': 'K7CHRL6aqt1C6eGJ9EHyFaZCn86G0fyI2sTZKSkW'
-    }
-  }).then((res) => {
-    console.log(res.data);
-    populatePlaylists(res.data.playlists);
-  })
-}
+// window.onload = async function(evt) {
+//   evt.preventDefault();
+//   console.log("Getting Playlist Data...");
+//   axios.get("https://svebsuap66.execute-api.us-west-2.amazonaws.com/prod/playlists", {
+//     authorization: {
+//       'x-api-key': 'K7CHRL6aqt1C6eGJ9EHyFaZCn86G0fyI2sTZKSkW'
+//     }
+//   }).then((res) => {
+//     console.log(res.data);
+//     populatePlaylists(res.data.playlists);
+//   })
+// }
 
-function populatePlaylists(playlistData) {
+// function populatePlaylists(playlistData) {
 
-  for (let playlist of playlistData) {
-    let li = document.createElement("li");
-    let a = document.createElement("a");
-    let text = document.createTextNode(playlist.name);
+//   for (let playlist of playlistData) {
+//     let li = document.createElement("li");
+//     let a = document.createElement("a");
+//     let text = document.createTextNode(playlist.name);
 
-    a.setAttribute('href', `./playlist.html?id=${playlist.id}`);
+//     a.setAttribute('href', `./playlist.html?id=${playlist.id}`);
 
-    a.appendChild(text);
-    li.appendChild(a);
-    playlistsList.appendChild(li);
-  }
-}
+//     a.appendChild(text);
+//     li.appendChild(a);
+//     playlistsList.appendChild(li);
+//   }
+// }
 
 function validateAccount(){
   //Grabs username and passowrd from document to be used as parameters for API
@@ -61,7 +61,7 @@ function validateAccount(){
   //let password = "&password="+"password";
   
   let string1 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?"+usernameAttachment+passwordAttachment;
-  let string2 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?user_email=john.smith@gmail.com&password=poo";
+  let string2 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?email=juan@gmail.com&password=123";
 
   const userObj = {
     "email": username,
@@ -70,21 +70,27 @@ function validateAccount(){
 
   axios.get(string1).then((res) => {
     console.log(res);
-    if (res.data.user.email === username && res.data.user.password === password) {
-      alert("user logged in");
-      //Native method can only store strings as strings
-      localStorage.setItem('BTC','100');
-      localStorage.setItem('ETH','1');
-      var cat = localStorage.getItem('BTC');
-      console.log(cat)
-      console.log(localStorage.getItem('BTC'))
-      console.log(localStorage.getItem('1'))
-      console.log(localStorage.getItem('ETH'))
-      window.location.replace("./portfolio.html");
-
-    } else {
-      alert("Invalid information");
+    try {
+      if (res.data.user.email === username && res.data.user.password === password) {
+        alert("user logged in");
+        //Native method can only store strings as strings
+        localStorage.setItem('BTC','100');
+        localStorage.setItem('ETH','1');
+        var cat = localStorage.getItem('BTC');
+        console.log(cat)
+        console.log(localStorage.getItem('BTC'))
+        console.log(localStorage.getItem('1'))
+        console.log(localStorage.getItem('ETH'))
+        window.location.replace("./portfolio.html");
+  
+      } else {
+        alert("Invalid information");
+      }
+      
+    } catch (error) { 
+      alert("Invalid information!");
     }
+    
   })
 }
 
