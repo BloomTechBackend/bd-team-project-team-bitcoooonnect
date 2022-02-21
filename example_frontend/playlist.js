@@ -67,6 +67,37 @@ function populateAlbumTracks(albumTracksData) {
 */
 
 function globalTest() {
-  var cat = localStorage.getItem('BTC');
+  var cat = localStorage.getItem('myCat');
   console.log(cat);
+  //localStorage.clear();
+}
+
+function updateAccount() {
+  //Grabs username and passowrd from document to be used as parameters for API
+  //let username = "user_email="+document.getElementById("username").value;
+  //let password = "&password="+document.getElementById("password").value;
+  //let username = "user_email="+"john.smith@gmail.com";
+  //let password = "&password="+"password";
+  
+  let string1 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?email=evan@gmail.com&coinId=btc&amount=1";
+  //let string2 = "https://cl9rje8xdi.execute-api.us-east-2.amazonaws.com/prod/user_profile?user_email=john.smith@gmail.com&password=password";
+
+  const user = {
+    "email": 'evan@gmail.com',
+    "coinId": 'btc',
+    "amount": '1'
+  }
+  axios.post(`https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile`, user).then((res) => {
+    console.log(res);
+    if (res.data.statusCode === 200) {
+      alert("user created");
+      window.location.replace("./portfolio.html");
+      localStorage.setItem('myCat', 'Tom');
+      var cat = localStorage.getItem('myCat');
+
+    } else {
+      alert("Invalid information");
+    }
+  })
+  
 }
