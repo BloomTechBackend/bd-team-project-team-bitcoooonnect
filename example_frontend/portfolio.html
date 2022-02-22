@@ -7,19 +7,19 @@
 </head>
 
 <script>
-    let sortDirection = false;
-    let mockUserData = [{coin:'BTC', amount: '13'},{coin:'ETH', amount: '11'},{coin:'LTC', amount: '9'}];
     window.onload = () => {
-        loadTableData(mockUserData);
+        loadTableData();
     };
 
-    function loadTableData(mockUserData){
+    function loadTableData(){
         const tableBody = document.getElementById('tableData')
         let dataHtml = '';
-        for(let coins of mockUserData){
-            dataHtml += `<tr><td>${coins.coin}</td><td>${coins.amount}</td><tr>`
+
+        for (i = 0; i < localStorage.length; i++) {
+            dataHtml += `<tr><td>${localStorage.key(i)}</td><td>${localStorage.getItem(localStorage.key(i))}</td><tr>`
         }
         tableBody.innerHTML = dataHtml;
+        localStorage.clear();
     }
 </script>
 
@@ -28,27 +28,6 @@
     <div class="rightedit">
         <button onclick="editAccount()">Edit</button>
         <button onclick="updateAccount()">Update</button>
-    </div>
-    <div role="table" class="css-1689bsa">
-        <div role="rowgroup" class="css-dhyehc">
-            <div role="row" class="css-sl18mi-HeaderRow">
-                <!--coinHeader-->
-                <div role="columnheader" class="css-1bbgp1k-HeaderCell">
-                    <button type="button" class="css-1qboxyi-UnstyledButton">
-                        <div class="css-b0kjmv">
-                            <span class="css-w8p71j">Name</span>
-                        </div>
-                        <div class="css-sg1k4d"></div>
-                        <div class="css-1y43vfm-HeaderCellArrow">…</div>
-                    </button>
-                    <div class="css-k6x63s-HeaderCell"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="css-79elbk">
-
-        </div>
     </div>
 
 

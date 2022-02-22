@@ -57,30 +57,29 @@ function validateAccount(){
   let password = document.getElementById("password").value;
   let usernameAttachment = "email="+document.getElementById("username").value;
   let passwordAttachment = "&password="+document.getElementById("password").value;
-  //let username = "user_email="+"john.smith@gmail.com";
-  //let password = "&password="+"password";
   
   let string1 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?"+usernameAttachment+passwordAttachment;
-  let string2 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?email=juan@gmail.com&password=123";
-
-  const userObj = {
-    "email": username,
-    "password": password
-  }
+  //let username = 'ron@gmail.com';
+  //let password = '123';
+  //let string2 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?email=ron@gmail.com&password=123";
 
   axios.get(string1).then((res) => {
-    console.log(res);
     try {
+      
+      
       if (res.data.user.email === username && res.data.user.password === password) {
+        objKeys = Object.keys(res.data.user.coins);
+        objValues = Object.values(res.data.user.coins);
+        for(let i = 0; i < Object.keys(res.data.user.coins).length; i++) {
+          console.log(objKeys[i]);
+          console.log(objValues[i]);
+          localStorage.setItem(String(objKeys[i]),String(objValues[i]));
+        }
         alert("user logged in");
-        //Native method can only store strings as strings
-        localStorage.setItem('BTC','100');
-        localStorage.setItem('ETH','1');
-        var cat = localStorage.getItem('BTC');
-        console.log(cat)
-        console.log(localStorage.getItem('BTC'))
-        console.log(localStorage.getItem('1'))
-        console.log(localStorage.getItem('ETH'))
+        for (i = 0; i < localStorage.length; i++)   {
+          console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+        }
+        //localStorage.clear();
         window.location.replace("./portfolio.html");
   
       } else {
