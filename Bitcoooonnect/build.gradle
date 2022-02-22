@@ -67,6 +67,13 @@ dependencies {
     //Apache lang for generating user id
     implementation 'org.apache.commons:commons-lang3:3.9'
 
+    // For API client
+    implementation('com.squareup.retrofit2:retrofit:2.9.0')
+    implementation('com.squareup.okhttp3:okhttp:4.9.3')
+    implementation('com.squareup.retrofit2:converter-jackson:2.9.0')
+    implementation('com.squareup.moshi:moshi:1.13.0')
+    implementation('com.googlecode.json-simple:json-simple:1.1.1')
+
 }
 
 task buildZip(type: Zip) {
