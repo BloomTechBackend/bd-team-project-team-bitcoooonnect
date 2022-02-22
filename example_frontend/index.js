@@ -113,15 +113,27 @@ function createAccount() {
 
   axios.post(string2, userObj).then((res) => {
     console.log(res);
-    if (res.data.user.email === username && res.data.user.password === password) {
-      alert("user created");
-      window.location.replace("./portfolio.html");
-      localStorage.setItem('myCat', 'Tom');
-      var cat = localStorage.getItem('myCat');
-
-    } else {
-      alert("Invalid information");
+    try {
+      if (res.data.user.email === username && res.data.user.password === password) {
+        alert("user created");
+        //Native method can only store strings as strings
+        localStorage.setItem('BTC','100');
+        localStorage.setItem('ETH','1');
+        var cat = localStorage.getItem('BTC');
+        console.log(cat)
+        console.log(localStorage.getItem('BTC'))
+        console.log(localStorage.getItem('1'))
+        console.log(localStorage.getItem('ETH'))
+        window.location.replace("./portfolio.html");
+  
+      } else {
+        alert("Invalid information");
+      }
+      
+    } catch (error) { 
+      alert("Invalid information! User not created");
     }
+    
   })
   
 }
