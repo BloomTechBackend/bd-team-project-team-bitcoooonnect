@@ -24,22 +24,18 @@ public class UpdateCoinActivity implements RequestHandler<UpdateCoinRequest,
     public UpdateCoinResult handleRequest(final UpdateCoinRequest updateCoinRequest,
                                           Context context) {
 
-
-        List<String> requestedIds = new ArrayList<>();
-        requestedIds.addAll(updateCoinRequest.getCoins().keySet());
-
-        Map<String, List<Object>> coins = coinDao.getCoin(requestedIds);
-
         List<CoinModel> coinModels = new ArrayList<>();
         List<Coin> allCoins = new ArrayList<>();
 
-        for(Object coin : coins.get("coins") ) {
-            Double price =
-                    updateCoinRequest.getCoins().get(((Coin) coin).getId());
-
-            ((Coin) coin).setPrice(price);
-            coinModels.add(new ModelConverter().toCoinModel((Coin) coin));
-            allCoins.add((Coin) coin);
+        for(Map.Entry<String, Double> coinPair :
+                updateCoinRequest.getCoins().entrySet() ) {
+            Double price = coinPair.getValue();
+            String id = coinPair.getKey();
+            Coin coin = new Coin();
+            coin.setId(id);
+            coin.setPrice(price);
+            coinModels.add(new ModelConverter().toCoinModel(coin));
+            allCoins.add(coin);
         }
 
         coinDao.saveCoins(allCoins);
