@@ -14,10 +14,10 @@ Resources:
     Type: AWS::DynamoDB::Table
     Properties:
       AttributeDefinitions:
-        - AttributeName: "email"
+        - AttributeName: "authToken"
           AttributeType: "S"
       KeySchema:
-        - AttributeName: "email"
+        - AttributeName: "authToken"
           KeyType: "HASH"
       BillingMode: "PAY_PER_REQUEST"
       TableName: "users"

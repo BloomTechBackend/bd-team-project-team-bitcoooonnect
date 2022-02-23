@@ -8,12 +8,24 @@
   </head>
   <body>
 
-    <div class="main-div">
+    <div class="main">
       <h2>Bitcoooonect</h2>
-      <input type="email" placeholder="Email" id="username"/>
-      <input type="password" placeholder="Password" id="password" />
-      <button onclick="createAccount()">Create an Account</button>
-      <button onclick="validateAccount()">Login to Account</button>
+      
+      
+
+      
+      <div id="HASH" class="blue-msg">
+        <span id="time-HASH" class="smalltext">
+          <div id="d2">
+            <button onclick="createAccount()">Generate Authorization Token</button>
+          </div>
+        </span>
+        <span class="ios-circle">
+          <div id="main-div">
+            <input type="email" placeholder="AuthToken" id="username" />
+          </div>
+        <button onclick="validateAccount()">Go to Portfolio</button></span>
+      </div>
 
     </div>
     
