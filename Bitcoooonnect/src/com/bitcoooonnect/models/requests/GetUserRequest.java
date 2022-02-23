@@ -1,16 +1,12 @@
 package com.bitcoooonnect.models.requests;
 
-import com.amazonaws.services.dynamodbv2.model.Get;
-
 import java.util.Objects;
 
 public class GetUserRequest {
-    private String email;
-    private String password;
+    private String authToken;
 
-    public GetUserRequest(String email, String password) {
-        this.email = email;
-        this.password = password;
+    public GetUserRequest(String authToken) {
+        this.authToken = authToken;
     }
 
     public GetUserRequest() {
@@ -18,24 +14,15 @@ public class GetUserRequest {
     }
 
     public GetUserRequest(Builder builder) {
-        this.email = builder.email;
-        this.password = builder.password;
+        this.authToken = builder.authToken;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAuthToken() {
+        return authToken;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
     }
 
     @Override
@@ -43,19 +30,18 @@ public class GetUserRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GetUserRequest that = (GetUserRequest) o;
-        return email.equals(that.email) && Objects.equals(password, that.password);
+        return authToken.equals(that.authToken);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, password);
+        return Objects.hash(authToken);
     }
 
     @Override
     public String toString() {
         return "GetUserRequest{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                "authToken='" + authToken + '\'' +
                 '}';
     }
 
@@ -64,23 +50,16 @@ public class GetUserRequest {
     }
 
     public static final class Builder {
-        private String email;
-        private String password;
+        private String authToken;
 
         private Builder() {
 
         }
 
-        public Builder withEmailToUse(String emailToUse) {
-            this.email = emailToUse;
+        public Builder withAuthTokenToUse(String authToken) {
+            this.authToken = authToken;
             return this;
         }
-
-        public Builder withPassWordToUse(String passWordToUse) {
-            this.password = passWordToUse;
-            return this;
-        }
-
 
         public GetUserRequest build() {
             return new GetUserRequest(this);

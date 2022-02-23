@@ -29,7 +29,7 @@ public class GetUserActivity implements RequestHandler<GetUserRequest, GetUserRe
     @Override
     public GetUserResult handleRequest(final GetUserRequest getUserRequest, Context context) {
 //        log.info("Received CreateUserRequest {}", CreateUserRequest);
-        String userEmail = getUserRequest.getEmail();
+        String userEmail = getUserRequest.getAuthToken();
 
         User user = userDao.getUser(userEmail);
 

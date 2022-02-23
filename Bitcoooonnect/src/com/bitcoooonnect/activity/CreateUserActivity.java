@@ -19,6 +19,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.inject.Inject;
+import java.util.UUID;
 
 public class CreateUserActivity implements RequestHandler<CreateUserRequest, CreateUserResult> {
     private final Logger log = LogManager.getLogger();
@@ -33,18 +34,10 @@ public class CreateUserActivity implements RequestHandler<CreateUserRequest, Cre
     public CreateUserResult handleRequest(final CreateUserRequest createUserRequest, Context context) {
 //        log.info("Received CreateUserRequest {}", CreateUserRequest);
 
-        String requestedEmail = createUserRequest.getEmail();
-        //String emailRegex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$";
-        String emailRegex = "^[-a-z0-9~!$%^&*_=+}{\\'?]+(\\.[-a-z0-9~!$%^&*_=+}{\\'?]+)*@([a-z0-9_][-a-z0-9_]*(\\.[-a-z0-9_]+)*\\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(:[0-9]{1,5})?$";
-        if(!requestedEmail.matches(emailRegex)) {
-            throw new InvalidAttributeException("Invalid email, please enter a valid email");
-        }
-
-        String requestedPassword = createUserRequest.getPassword();
+        String uuid = UUID.randomUUID().toString();
 
         User user = new User();
-        user.setEmail(requestedEmail);
-        user.setPassword(requestedPassword);
+        user.setAuthToken(uuid);
         user.setCoins(null);
 
         userDao.saveUser(user);
