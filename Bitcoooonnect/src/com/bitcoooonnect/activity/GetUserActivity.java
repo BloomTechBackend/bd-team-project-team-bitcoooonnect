@@ -29,16 +29,12 @@ public class GetUserActivity implements RequestHandler<GetUserRequest, GetUserRe
     @Override
     public GetUserResult handleRequest(final GetUserRequest getUserRequest, Context context) {
 //        log.info("Received CreateUserRequest {}", CreateUserRequest);
-        String userEmail = getUserRequest.getAuthToken();
+        String userAuthToken = getUserRequest.getAuthToken();
 
-        User user = userDao.getUser(userEmail);
+        User user = userDao.getUser(userAuthToken);
 
         if(user == null) {
-            throw new InvalidAttributeException("Invalid email address, no user exists with this email!");
-        }
-
-        if(!user.getPassword().equals(getUserRequest.getPassword())) {
-            throw new InvalidAttributeException("Wrong password!");
+            throw new InvalidAttributeException("Invalid auth Token, no user exists with this AuthToken!");
         }
 
         UserModel userModel =  new ModelConverter().toUserModel(user);

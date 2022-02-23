@@ -2,6 +2,7 @@ package com.bitcoooonnect.models;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class UserModel {
     private String authToken;
@@ -32,6 +33,20 @@ public class UserModel {
     public void setCoins(Map<String, Double> coins) {
         this.coins = coins;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserModel userModel = (UserModel) o;
+        return getAuthToken().equals(userModel.getAuthToken()) && Objects.equals(getCoins(), userModel.getCoins());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAuthToken(), getCoins());
+    }
+
 
     public static Builder builder() { return new Builder(); }
 
