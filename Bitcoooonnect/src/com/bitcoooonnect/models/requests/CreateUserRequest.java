@@ -5,8 +5,8 @@ import java.util.Objects;
 public class CreateUserRequest {
     private String authToken;
 
-    public CreateUserRequest(String email, String password) {
-        this.authToken = email;
+    public CreateUserRequest(String authToken, String password) {
+        this.authToken = authToken;
     }
 
     public CreateUserRequest() {
