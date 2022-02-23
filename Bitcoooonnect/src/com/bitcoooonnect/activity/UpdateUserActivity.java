@@ -1,6 +1,5 @@
 package com.bitcoooonnect.activity;
 
-import com.amazonaws.Request;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.bitcoooonnect.dynamodb.UserDao;
@@ -21,7 +20,7 @@ public class UpdateUserActivity implements RequestHandler<UpdateUserRequest, Upd
 
     @Override
     public UpdateUserResult handleRequest(final UpdateUserRequest updateUserRequest, Context context) {
-        User user = userDao.getUser(updateUserRequest.getEmail());
+        User user = userDao.getUser(updateUserRequest.getAuthToken());
         Map<String, Double> coins = user.getCoins();
         coins.put(updateUserRequest.getCoinId(), updateUserRequest.getAmount());
         user.setCoins(coins);
