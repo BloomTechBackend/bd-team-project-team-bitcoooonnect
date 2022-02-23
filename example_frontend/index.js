@@ -73,7 +73,9 @@ function validateAccount(){
         for(let i = 0; i < Object.keys(res.data.user.coins).length; i++) {
           console.log(objKeys[i]);
           console.log(objValues[i]);
-          localStorage.setItem(String(objKeys[i]),String(objValues[i]));
+          //converts number to be number with 8 decimal places
+          let value = (objValues[i]).toFixed(8); 
+          localStorage.setItem(String(objKeys[i]),String(value));
         }
         alert("user logged in");
         for (i = 0; i < localStorage.length; i++)   {
