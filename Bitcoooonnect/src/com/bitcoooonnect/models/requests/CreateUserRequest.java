@@ -3,12 +3,10 @@ package com.bitcoooonnect.models.requests;
 import java.util.Objects;
 
 public class CreateUserRequest {
-    private String email;
-    private String password;
+    private String authToken;
 
-    public CreateUserRequest(String email, String password) {
-        this.email = email;
-        this.password = password;
+    public CreateUserRequest(String authToken, String password) {
+        this.authToken = authToken;
     }
 
     public CreateUserRequest() {
@@ -16,24 +14,15 @@ public class CreateUserRequest {
     }
 
     public CreateUserRequest(Builder builder) {
-        this.email = builder.email;
-        this.password = builder.password;
+        this.authToken = builder.authToken;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAuthToken() {
+        return authToken;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
     }
 
     @Override
@@ -41,19 +30,18 @@ public class CreateUserRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CreateUserRequest that = (CreateUserRequest) o;
-        return getEmail().equals(that.getEmail()) && Objects.equals(getPassword(), that.getPassword());
+        return getAuthToken().equals(that.getAuthToken());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getEmail(), getPassword());
+        return Objects.hash(getAuthToken());
     }
 
     @Override
     public String toString() {
         return "CreateUserRequest{" +
-                "id='" + email + '\'' +
-                ", name='" + password + '\'' +
+                "id='" + authToken + '\'' +
                 '}';
     }
 
@@ -62,20 +50,14 @@ public class CreateUserRequest {
     }
 
     public static final class Builder {
-        private String email;
-        private String password;
+        private String authToken;
 
         private Builder() {
 
         }
 
-        public Builder withEmailToUse(String emailToUse) {
-            this.email = emailToUse;
-            return this;
-        }
-
-        public Builder withPassword(String passwordToUse) {
-            this.password = passwordToUse;
+        public Builder withAuthTokenToUse(String authToken) {
+            this.authToken = authToken;
             return this;
         }
 
