@@ -1,13 +1,12 @@
 table {
   border-collapse: collapse;
-  width: 80%;
 }
 
 table,
 th,
 td {
-  border: 1px solid black;
-  padding: 15px;
+  border: 0px solid black;
+  padding: 10px;
 }
 
 th {
@@ -16,7 +15,21 @@ th {
 
 th,
 td {
-  
+}
+
+th {
+  text-align: center;
+}
+td:nth-child(2) {
+  text-align: right;
+  padding-right: 2px;
+}
+td:nth-child(3) {
+  padding-right: 20px;
+  position: relative;
+  left: -0.2em;
+  text-align: left;
+  padding-left: 0;
 }
 
 body {
@@ -29,14 +42,7 @@ body {
 input,
 button {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 1px;
-}
-
-.main-div {
-  width: 20%;
-  margin: 0px auto;
-  margin-top: 150px;
-  padding: 20px;
+  margin-top: 49px;
 }
 
 .main-div input {
@@ -44,53 +50,19 @@ button {
   border: 1px solid #ccc;
   border-radius: 5px;
   background: #fff;
-  padding: 15px;
+  padding: 60px;
   outline: none;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.rightedit {
-  right: 0px;
-  padding: 10px;
-  display: block;
-  margin: auto;
-}
-
-.css-1689bsa {
-  border-collapse: separate;
-  border-spacing: 0px;
-  width: 100%;
-}
-
-.css-dhyehc {
-  position: sticky;
-  top: 144px;
-  z-index: 1;
-}
-
-.css-sl18mi-HeaderRow {
-  background-color: rgb(255,255,255);
+#HASH {
   display: flex;
-  margin: 0 calc(-1 * calc(2 * 12));
-  padding: 0 calc(2 * 12);
+  justify-content: space-between;
 }
 
-.css-1bbgp1k-HeaderCell {
-  -webkit-box-align: center;
-  align-items: center;
-  border-bottom: 1px solid rgb(227,233,237);
-  box-sizing: border-box;
-  display: flex;
-  height: 48px;
-  padding-right: calc(2 * 12);
-  position: relative;
-  text-align: left;
-  width: 250px;
-}
-
-.css-w8p71j {
-  margin: 0px;
-  color: rgb(0,200,5);
-  font-family: "Capsule Sans Text",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+p {
+  background-color: blue;
+  color: white;
+  margin-top: 49px;
 }

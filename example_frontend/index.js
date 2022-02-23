@@ -94,49 +94,37 @@ function validateAccount(){
     
   })
 }
-
+//Use authToken with GET request for portfolio data
 function createAccount() {
-  //Grabs username and passowrd from document to be used as parameters for API
+
   let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
-  let usernameAttachment = "email="+document.getElementById("username").value;
-  let passwordAttachment = "&password="+document.getElementById("password").value;
-  //let username = "user_email="+"john.smith@gmail.com";
-  //let password = "&password="+"password";
-  //let string1 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?"
-  //let string1 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?"+username+password;
-  let string2 = "https://ofeus50s1a.execute-api.us-east-2.amazonaws.com/prod/user_profile?"+usernameAttachment+passwordAttachment;
+  let usernameAttachment = "authToken="+document.getElementById("username").value;
+  let BITCOOOONECT_API = "https://t3d210uhn7.execute-api.us-east-2.amazonaws.com/test/portfolio"
 
   const userObj = {
-    "email": username,
-    "password": password
-  }
+  };
 
-  axios.post(string2, userObj).then((res) => {
-    console.log(res);
+  axios.post(BITCOOOONECT_API, userObj).then((res) => {
+    console.log(res.data);
     try {
-      if (res.data.user.email === username && res.data.user.password === password) {
-        alert("user created");
-        //Native method can only store strings as strings
-        localStorage.setItem('BTC','100');
-        localStorage.setItem('ETH','1');
-        var cat = localStorage.getItem('BTC');
-        console.log(cat)
-        console.log(localStorage.getItem('BTC'))
-        console.log(localStorage.getItem('1'))
-        console.log(localStorage.getItem('ETH'))
-        window.location.replace("./portfolio.html");
-  
-      } else {
-        alert("Invalid information");
-      }
+        let authToken = res.data.user.authToken;
+        var para=document.createElement("p");
+            var node=document.createTextNode(String(authToken));
+            para.appendChild(node);
+            para.style.color="red";
+            var element=document.getElementById("d2");
+            element.appendChild(para)
       
     } catch (error) { 
-      alert("Invalid information! User not created");
+      alert("API is disconnected");
     }
     
   })
   
 }
+
+
+
+
 
 

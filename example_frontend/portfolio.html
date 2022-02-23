@@ -14,9 +14,12 @@
     function loadTableData(){
         const tableBody = document.getElementById('tableData')
         let dataHtml = '';
+        localStorage.setItem('BTC', '100.000');
+        localStorage.setItem('ETH', '1.000');
 
         for (i = 0; i < localStorage.length; i++) {
-            dataHtml += `<tr><td>${localStorage.key(i)}</td><td>${localStorage.getItem(localStorage.key(i))}</td><tr>`
+            let splitArray = String(localStorage.getItem(localStorage.key(i))).split('.');
+            dataHtml += `<tr><td>${localStorage.key(i)}</td><td>${splitArray[0]}.</td><td>${splitArray[1]}</td><tr>`
         }
         tableBody.innerHTML = dataHtml;
         localStorage.clear();
