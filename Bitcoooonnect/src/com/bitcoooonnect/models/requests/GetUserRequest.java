@@ -3,10 +3,10 @@ package com.bitcoooonnect.models.requests;
 import java.util.Objects;
 
 public class GetUserRequest {
-    private String authToken;
+    private String emailId;
 
-    public GetUserRequest(String authToken) {
-        this.authToken = authToken;
+    public GetUserRequest(String emailId) {
+        this.emailId = emailId;
     }
 
     public GetUserRequest() {
@@ -14,15 +14,15 @@ public class GetUserRequest {
     }
 
     public GetUserRequest(Builder builder) {
-        this.authToken = builder.authToken;
+        this.emailId = builder.emailId;
     }
 
-    public String getAuthToken() {
-        return authToken;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     @Override
@@ -30,18 +30,18 @@ public class GetUserRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GetUserRequest that = (GetUserRequest) o;
-        return authToken.equals(that.authToken);
+        return emailId.equals(that.emailId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authToken);
+        return Objects.hash(emailId);
     }
 
     @Override
     public String toString() {
         return "GetUserRequest{" +
-                "authToken='" + authToken + '\'' +
+                "authToken='" + emailId + '\'' +
                 '}';
     }
 
@@ -50,14 +50,14 @@ public class GetUserRequest {
     }
 
     public static final class Builder {
-        private String authToken;
+        private String emailId;
 
         private Builder() {
 
         }
 
-        public Builder withAuthTokenToUse(String authToken) {
-            this.authToken = authToken;
+        public Builder withEmailIdToUse(String emailIdToUse) {
+            this.emailId = emailIdToUse;
             return this;
         }
 

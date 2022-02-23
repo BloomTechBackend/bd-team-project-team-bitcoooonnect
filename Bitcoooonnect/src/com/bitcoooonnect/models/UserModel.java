@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class UserModel {
-    private String authToken;
+    private String emailId;
     private Map<String, Double> coins = new HashMap<>();
 
     public UserModel() {
@@ -13,17 +13,17 @@ public class UserModel {
     }
 
     public UserModel(Builder builder) {
-        this.authToken = builder.authToken;
+        this.emailId = builder.emailId;
         this.coins = builder.coins;
     }
 
 
-    public String getAuthToken() {
-        return authToken;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public Map<String, Double> getCoins() {
@@ -39,23 +39,23 @@ public class UserModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserModel userModel = (UserModel) o;
-        return getAuthToken().equals(userModel.getAuthToken()) && Objects.equals(getCoins(), userModel.getCoins());
+        return getEmailId().equals(userModel.getEmailId()) && Objects.equals(getCoins(), userModel.getCoins());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAuthToken(), getCoins());
+        return Objects.hash(getEmailId(), getCoins());
     }
 
 
     public static Builder builder() { return new Builder(); }
 
     public static final class Builder {
-        private String authToken;
+        private String emailId;
         private Map<String, Double> coins = new HashMap<>();
 
-        public Builder withAuthToken(String authTokenToUse) {
-            this.authToken = authTokenToUse;
+        public Builder withEmailId(String emailIdToUse) {
+            this.emailId = emailIdToUse;
             return this;
         }
 

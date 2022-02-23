@@ -10,12 +10,12 @@ public class ModelConverter {
     public UserModel toUserModel(User user) {
         if(user.getCoins() == null) {
             return UserModel.builder()
-                    .withAuthToken(user.getAuthToken())
+                    .withEmailId(user.getEmailId())
                     .withCoins(null)
                     .build();
         }
         return UserModel.builder()
-                .withAuthToken(user.getAuthToken())
+                .withEmailId(user.getEmailId())
                 .withCoins(user.getCoins())
                 .build();
     }

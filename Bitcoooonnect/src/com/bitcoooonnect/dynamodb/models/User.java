@@ -9,16 +9,16 @@ import java.util.Map;
 
 @DynamoDBTable(tableName = "users")
 public class User {
-    private String authToken;
+    private String emailId;
     private Map<String, Double> coins = new HashMap<>();
 
-    @DynamoDBHashKey(attributeName = "authToken")
-    public String getAuthToken() {
-        return authToken;
+    @DynamoDBHashKey(attributeName = "emailId")
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     @DynamoDBAttribute(attributeName = "coins")

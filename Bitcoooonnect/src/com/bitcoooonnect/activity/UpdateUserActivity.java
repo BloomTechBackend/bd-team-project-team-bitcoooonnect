@@ -20,7 +20,7 @@ public class UpdateUserActivity implements RequestHandler<UpdateUserRequest, Upd
 
     @Override
     public UpdateUserResult handleRequest(final UpdateUserRequest updateUserRequest, Context context) {
-        User user = userDao.getUser(updateUserRequest.getAuthToken());
+        User user = userDao.getUser(updateUserRequest.getEmailId());
         Map<String, Double> coins = user.getCoins();
         coins.put(updateUserRequest.getCoinId(), updateUserRequest.getAmount());
         user.setCoins(coins);

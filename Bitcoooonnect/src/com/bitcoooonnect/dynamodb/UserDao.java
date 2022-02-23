@@ -13,8 +13,8 @@ public class UserDao {
         this.dynamoDBMapper = dynamoDBMapper;
     }
 
-    public User getUser(String authToken){
-        User user = this.dynamoDBMapper.load(User.class, authToken);
+    public User getUser(String emailId){
+        User user = this.dynamoDBMapper.load(User.class, emailId);
         return user;
     }
 

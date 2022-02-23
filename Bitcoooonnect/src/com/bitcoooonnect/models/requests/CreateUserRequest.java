@@ -3,10 +3,10 @@ package com.bitcoooonnect.models.requests;
 import java.util.Objects;
 
 public class CreateUserRequest {
-    private String authToken;
+    private String emailId;
 
-    public CreateUserRequest(String authToken, String password) {
-        this.authToken = authToken;
+    public CreateUserRequest(String emailId) {
+        this.emailId = emailId;
     }
 
     public CreateUserRequest() {
@@ -14,15 +14,15 @@ public class CreateUserRequest {
     }
 
     public CreateUserRequest(Builder builder) {
-        this.authToken = builder.authToken;
+        this.emailId = builder.emailId;
     }
 
-    public String getAuthToken() {
-        return authToken;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     @Override
@@ -30,18 +30,18 @@ public class CreateUserRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CreateUserRequest that = (CreateUserRequest) o;
-        return getAuthToken().equals(that.getAuthToken());
+        return getEmailId().equals(that.getEmailId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAuthToken());
+        return Objects.hash(getEmailId());
     }
 
     @Override
     public String toString() {
         return "CreateUserRequest{" +
-                "id='" + authToken + '\'' +
+                "id='" + emailId + '\'' +
                 '}';
     }
 
@@ -50,14 +50,14 @@ public class CreateUserRequest {
     }
 
     public static final class Builder {
-        private String authToken;
+        private String emailId;
 
         private Builder() {
 
         }
 
-        public Builder withAuthTokenToUse(String authToken) {
-            this.authToken = authToken;
+        public Builder withEmailIdToUse(String emailIdToUse) {
+            this.emailId = emailIdToUse;
             return this;
         }
 

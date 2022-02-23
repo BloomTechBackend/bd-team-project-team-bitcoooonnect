@@ -3,7 +3,7 @@ package com.bitcoooonnect.models.requests;
 import java.util.Objects;
 
 public class UpdateUserRequest {
-    private String authToken;
+    private String emailId;
     private String coinId;
     private Double amount;
 
@@ -11,24 +11,24 @@ public class UpdateUserRequest {
 
     }
 
-    public UpdateUserRequest(String authToken, String coinId, Double amount) {
-        this.authToken = authToken;
+    public UpdateUserRequest(String emailId, String coinId, Double amount) {
+        this.emailId = emailId;
         this.coinId = coinId;
         this.amount = amount;
     }
 
     public UpdateUserRequest(Builder builder) {
-        this.authToken = builder.authToken;
+        this.emailId = builder.emailId;
         this.coinId = builder.coinId;
         this.amount = builder.amount;
     }
 
-    public String getAuthToken() {
-        return authToken;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getCoinId() {
@@ -52,18 +52,18 @@ public class UpdateUserRequest {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UpdateUserRequest that = (UpdateUserRequest) o;
-        return getAuthToken().equals(that.getAuthToken()) && Objects.equals(getCoinId(), that.getCoinId()) && Objects.equals(getAmount(), that.getAmount());
+        return getEmailId().equals(that.getEmailId()) && Objects.equals(getCoinId(), that.getCoinId()) && Objects.equals(getAmount(), that.getAmount());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAuthToken(), getCoinId(), getAmount());
+        return Objects.hash(getEmailId(), getCoinId(), getAmount());
     }
 
     @Override
     public String toString() {
         return "UpdateUserRequest{" +
-                "authToken='" + authToken + '\'' +
+                "authToken='" + emailId + '\'' +
                 ", coinId='" + coinId + '\'' +
                 ", amount=" + amount +
                 '}';
@@ -74,7 +74,7 @@ public class UpdateUserRequest {
     }
 
     public static final class Builder {
-        private String authToken;
+        private String emailId;
         private String coinId;
         private Double amount;
 
@@ -82,8 +82,8 @@ public class UpdateUserRequest {
 
         }
 
-        public Builder withAutthToken(String authTokenToUse) {
-            this.authToken = authTokenToUse;
+        public Builder withEmailId(String emailIdToUse) {
+            this.emailId = emailIdToUse;
             return this;
         }
 
