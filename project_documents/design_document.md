@@ -2,120 +2,116 @@
 
 ## Instructions
 
-*Save a copy of this template for your team in the same folder that contains
-this template.*
+Input coin type and quantity, get prices using coin price aggregator api
 
-*Replace italicized text (including this text!) with details of the design you
-are proposing for your team project. (Your replacement text shouldn't be in
-italics)*
+## Team Bitcoooonnect Design
 
-*You should take a look at the example design document in the same folder as
-this template for more guidance on the types of information to capture, and the
-level of detail to aim for.*
 
-## *Project Title* Design
 
 ## 1. Problem Statement
 
-*Explain clearly what problem you are trying to solve.*
-
+It's hard to track cryptocurrencies that you own, because they're on different centralized exchanges or stored in different wallets.
 
 ## 2. Top Questions to Resolve in Review
 
-*List the most important questions you have about your design, or things that
-you are still debating internally that you might like help working through.*
-
-1.   
-2.   
-3.  
+1. How to set up a login framework and which framework to use.
+2. How to integrate Coinbase and CoinGecko API.
+3. Which frontend framework to use.
 
 ## 3. Use Cases
 
-*This is where we work backwards from the customer and define what our customers
-would like to do (and why). You may also include use cases for yourselves, or
-for the organization providing the product to customers.*
+U1. As a Bitcoooonect customer, I want to see my cryptocurrency holdings when I login to Bitcoooonect.
 
-U1. *As a [product] customer, I want to `<result>` when I `<action>`*
+U2. As a Bitcoooonect customer, I want to add new coins to my cryptocurrency holdings on Bitcoooonect.
 
-U2. *As a [product] customer, I want to view my grocery list when I log into the
-grocery list page*
-    
-U3. ...
+U3. As a Bitcoooonect customer, I want to remove coins from my cryptocurrency holdings on Bitcoooonect.
+
+U4. As a Bitcoooonect customer, I want to update the amount of my exisiting cryptocurrency holdings.
 
 ## 4. Project Scope
 
-*Clarify which parts of the problem you intend to solve. It helps reviewers know
-what questions to ask to make sure you are solving for what you say and stops
-discussions from getting sidetracked by aspects you do not intend to handle in
-your design.*
-
 ### 4.1. In Scope
 
-*Which parts of the problem defined in Sections 1 and 2 will you solve with this
-design?*
+Viewing and managing their current cryptocurrency holdings. This includes seeing the cryptocurrencies that they hold, the amount,
+and the price($USD). Customers can update their portfolio to reflect their actual holdings across all exchanges.
 
 ### 4.2. Out of Scope
 
-*Based on your problem description in Sections 1 and 2, are there any aspects
-you are not planning to solve? Do potential expansions or related problems occur
-to you that you want to explicitly say you are not worrying about now? Feel free
-to put anything here that you think your team can't accomplish in the unit, but
-would love to do with more time.*
+* There are a vast amount of centralized exchanges that users can be storing their crypto on. As a result integrating all these APIs to provide real time holding updates would be useful but is currently out of scope.
+
+* Trading cryptocurrencies directly on our platform is a feature that is out of scope.
+
+* Real time prices updates will not be supported. In order for users to view prices they will need to make a new GET request. The prices that we show are limited to Coingecko's API terms, therefore users might not be able to make many GET requests for the most up to date prices.
 
 # 5. Proposed Architecture Overview
 
-*Describe broadly how you are proposing to solve for the requirements you
-described in Section 2.*
+![BitcoooonectCD](diagrams/BitcoooonectCD1.png)
 
-*This may include class diagram(s) showing what components you are planning to
-build.*
+This initial iteration will provide the minimum viable product (maybe loveable) including creating a user, retrieving user, adding tokens, retrieving and updating tokens in portfolio, updating token amount, and retrieving prices from an external API.
 
-*You should argue why this architecture (organization of components) is
-reasonable. That is, why it represents a good data flow and a good separation of
-concerns. Where applicable, argue why this architecture satisfies the stated
-requirements.*
+We will use API Gateway and Lambda to create three endpoints (`CreateUserActivity`,`UpdateUserUserActivity`, `GetUserActivity`)
+
+We will store user and coin information in tables in DynamoDB. We will be utilizing the "CoinGecko" to retrieve the latest prices on an interval(every sixty seconds).
+
+Bitcoooonnect will provide a front-end interface for users to manage their crypto portfolios. Initially this will be a login screen, an overall portfolio view page showing their holdings, the amounts, and prices, and a menu to add new a token to their holdings or update the amount of an existing holding.
+
+Our user authentication will be basic, will be authenticating user by an authentication token from DynamoDB.
 
 # 6. API
 
 ## 6.1. Public Models
 
-*Define the data models your service will expose in its responses via your
-*`-Model`* package. These will be equivalent to the *`PlaylistModel`* and
-*`SongModel`* from the Unit 3 project.*
+```
+CoinModel
 
-## 6.2. *First Endpoint*
+id // string
+name // string
+price // double
+```
 
-*Describe the behavior of the first endpoint you will build into your service
-API. This should include what data it requires, what data it returns, and how it
-will handle any known failure cases. You should also include a sequence diagram
-showing how a user interaction goes from user to website to service to database,
-and back. This first endpoint can serve as a template for subsequent endpoints.
-(If there is a significant difference on a subsequent endpoint, review that with
-your team before building it!)*
+```
+UserModel
 
-*(You should have a separate section for each of the endpoints you are expecting
-to build...)*
+emailId // partition key string
+coins // list [[coinId, amount], ...]
+```
 
-## 6.3 *Second Endpoint*
+## 6.2 Public EndPoints
 
-*(repeat, but you can use shorthand here, indicating what is different, likely
-primarily the data in/out and error conditions. If the sequence diagram is
-nearly identical, you can say in a few words how it is the same/different from
-the first endpoint)*
+### 6.2.1 Get User Endpoint
+* Accepts `GET` requests to `/portfolio`
+* returns User's portfolio.
+* If the given emailId is not found, will throw a `UserNotFoundException`
+### 6.2.2 Update User Endpoint
+* Accepts `PUT` requests to `/portfolio`
+* Accepts other required data: coin, amount, emailId
+    * if emailId is not found will throw a `UserNotFoundException`
+    * if the amount not greater than 0 will throw an `InvalidAttributeValueException`
+    * if the coin is not found will throw a `CoinNotFoundException`
+* returns newly updated User
+### 6.2.3 Create User Endpoint
+* Accepts `POST` requests to `/portfolio`
+* Accepts other required data: emailId
+* return new created user along with emailId
+
 
 # 7. Tables
+### 7.1. `coin`
+```
+id // partition key, string
+name // string
+price // number
+```
 
-*Define the DynamoDB tables you will need for the data your service will use. It
-may be helpful to first think of what objects your service will need, then
-translate that to a table structure, like with the *`Playlist` POJO* versus the
-`playlists` table in the Unit 3 project.*
+### 7.3. `user`
+```
+emailId // partition key string
+coins // list [[coinId, amount], ...]
+```
 
 # 8. Pages
 
-*Include mock-ups of the web pages you expect to build. These can be as
-sophisticated as mockups/wireframes using drawing software, or as simple as
-hand-drawn pictures that represent the key customer-facing components of the
-pages. It should be clear what the interactions will be on the page, especially
-where customers enter and submit data. You may want to accompany the mockups
-with some description of behaviors of the page (e.g. “When customer submits the
-submit-dog-photo button, the customer is sent to the doggie detail page”)*
+![frontend](images/design_document/frontend1.png)
+![frontend](images/design_document/frontend2.png)
+![frontend](images/design_document/frontend3.png)
+![frontend](images/design_document/frontend4.png)
