@@ -4,7 +4,7 @@
 
 Bitcoooonnect is a cryptocurrency portfolio tracker.
 
-[Design Document](project_documents/design_document_copy.md)
+[Design Document](design_document_copy.md)
 
 ### Use Cases
 U1. As a Bitcoooonect customer, I want to make an account to keep track of my cryptocurrency portfolio.
