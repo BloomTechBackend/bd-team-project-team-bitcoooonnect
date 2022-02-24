@@ -11,6 +11,6 @@ public interface ServiceComponent {
     CreateUserActivity providesCreateUserActivity();
     GetUserActivity providesGetUserActivity();
     UpdateUserActivity providesUpdateUserActivity();
-    GetCoinActivity providesGetCoinActivity();
+//    GetCoinActivity providesGetCoinActivity();
     UpdateCoinActivity providesUpdateCoinActivity();
 }

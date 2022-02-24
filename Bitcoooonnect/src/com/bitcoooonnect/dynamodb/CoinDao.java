@@ -2,6 +2,7 @@ package com.bitcoooonnect.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.KeyPair;
+import com.amazonaws.services.dynamodbv2.document.Table;
 import com.bitcoooonnect.dynamodb.models.Coin;
 
 import javax.inject.Inject;
@@ -18,7 +19,7 @@ public class CoinDao {
         this.dynamoDBMapper = dynamoDBMapper;
     }
 
-    public Map<String, List<Object>> getCoin(List<String> ids){
+    public Map<String, List<Object>> getCoins(List<String> ids){
 
         List<KeyPair> keyPairList = new ArrayList<>();
         for(String id : ids) {
@@ -40,6 +41,32 @@ public class CoinDao {
 
         return coins;
     }
+//    public Map<String, List<Object>> getAllCoins(){
+//
+//        List<KeyPair> keyPairList = new ArrayList<>();
+//        for(String id : ids) {
+//            KeyPair keyPair = new KeyPair();
+//            keyPair.withHashKey(id);
+//            keyPairList.add(keyPair);
+//        }
+//
+//        Map<Class<?>, List<KeyPair>> keyPairForTable = new HashMap<>();
+//        keyPairForTable.put(Coin.class, keyPairList);
+//
+//        Map<String, List<Object>> coins =
+//                this.dynamoDBMapper.batchLoad(keyPairForTable);
+//
+//        Table table = dynamoDBMapper
+//
+//        this.dynamoDBMapper.al
+//
+//        for (Map.Entry<String, List<Object>> entry : coins.entrySet()) {
+//            System.out.println("entry key: " + entry.getKey());
+//            System.out.println("entry value: " + entry.getValue());
+//        }
+//
+//        return coins;
+//    }
 
     public List<Coin> saveCoins(List<Coin> coins){
         this.dynamoDBMapper.batchSave(coins);
