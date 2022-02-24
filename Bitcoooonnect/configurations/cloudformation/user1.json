@@ -3,15 +3,15 @@
     {
       "PutRequest": {
         "Item": {
-          "authToken": {
-            "S": "123"
+          "emailId": {
+            "S": "guancruz81@gmail.com"
           },
            "coins": {
              "M": {
-               "btc": {
+               "Bitcoin": {
                  "N": "5.00985"
                },
-               "eth": {
+               "Ethereum": {
                  "N": "25.8"
                }
              }
@@ -22,15 +22,15 @@
     {
       "PutRequest": {
         "Item": {
-          "authToken": {
-            "S": "123"
+          "emailId": {
+            "S": "rondwalker22@yahoo.com"
           },
           "coins": {
             "M": {
-              "btc": {
+              "Bitcoin": {
                 "N": "10.98875"
               },
-              "eth": {
+              "Ethereum": {
                 "N": "5.238"
               }
             }
@@ -41,15 +41,15 @@
     {
       "PutRequest": {
         "Item": {
-          "authToken": {
-            "S": "123"
+          "emailId": {
+            "S": "evan@gmail.com"
           },
           "coins": {
             "M": {
-              "btc": {
+              "Bitcoin": {
                 "N": "49.0985"
               },
-              "eth": {
+              "Ethereum": {
                 "N": "25.812"
               }
             }
