@@ -1,81 +1,157 @@
 # Team Bitcoooonnect Integration Test Plan
 
-## Instructions
-
-*Create a copy of this template for your team and save it to the same folder.*
-
-*Fill out the test plan following the instructions provided, replacing/removing
-the text in italics (including this section!) as you go. You will review this
-document with the team you’re paired with for the unit.*
-
-## Purpose
-
-This captures the test plan for your project, including:
-
-* testing of endpoints through automated integration tests
-* testing of front-end through manual browser-based testing
-
-Use the endpoint test plan to create your automated integration tests. Use the
-front-end test plan to ensure that your front-end is working. Manual front-end
-tests are more expensive, so aim to have fewer of them, and you may want to run
-these at key milestones in your project (and certainly before presentation
-day!).
-
 ## Product Background
 
-*Provide a quick summary of your product, including a link back to your design
-document.*
+Bitcoooonnect is a cryptocurrency portfolio tracker.
+
+[Design Document](project_documents/design_document_copy.md)
 
 ### Use Cases
+U1. As a Bitcoooonect customer, I want to make an account to keep track of my cryptocurrency portfolio.
 
-*List your use cases here. These should be the same list from your design doc
-(though might be updated based on what you’ve learned since then!). You will
-refer back to these use cases in the test plans below.*
+U2. As a Bitcoooonect customer, I want to see my cryptocurrency holdings when I login to Bitcoooonect.
+
+U3. As a Bitcoooonect customer, I want to add new coins to my cryptocurrency holdings on Bitcoooonect.
+
+U4. As a Bitcoooonect customer, I want to remove coins from my cryptocurrency holdings on Bitcoooonect.
+
+U5. As a Bitcoooonect customer, I want to update the amount of my exisiting cryptocurrency holdings.
 
 # Automated Integration Test Plan
 
-*Organize your tests by use cases from your design document. Provide the entire
-“Use Case:...” section below for each Use Case you will implement in the
-project. If you have more than one test case for a given use case, repeat the
-“Test Case” section below for each test case in that use case.*
+## Use Case: Create Account
 
-*The goal should be that any member of your team could take this list of
-integration tests and add these automated tests to the integration test
-package.*
-
-## Use Case:* [use case name]*
-
-### **Test case name: *[test method name, following ATA conventions]***
+### Test case name: handleRequest_createsNewUser_returnsNewUser
 
 **Acceptance criteria:**
 
-1. *(List what must be true to verify the use case has been implemented
-   correctly)*
+1. A user item is created in the *users* table with the users inputted email as the partition key (*emailId*)
 
 **Endpoint(s) tested:**
 
-1. *(List only the endpoints actually tested (the “WHEN” part of your test,
-   which might have multiple steps in an integration test))*
+1. CreateUserActivity
 
 **GIVEN (Preconditions):**
 
-1. *(List the conditions that must be true for the test case to take place.)*
+1. A user signs up with a valid email address
 
 **WHEN (Action(s)):**
 
-1. *(List the steps that we’re actually testing to verify that they work
-   correctly. Often only one, but some integration tests might contain multiple
-   WHEN steps for complex situations)*
+1. Users **emailId** is passed into CreateUserActivity.handleRequest
 
 **THEN (Verification steps):**
 
-1. *(List the steps to verify/assert that the expected behavior actually
-   happens, include any relevant invariants here as well.)*
+1. Assert that a new user item has been created with the inputted email as the partition key
 
 **Is there any clean-up needed for this test?**
 
-1. *(Is there anything we need to do after this test finishes, to clean up and
-   leave our service like we found it?)* 
+1. Remove newly created user from the users database
+
+## Use Case: Get Account
+
+### Test case name: handleRequest_getUser_returnsUser
+
+**Acceptance criteria:**
+
+1. A user is retrieved from the **users** table by their **emailId** and displays their **emailId** and **coins** 
+
+**Endpoint(s) tested:**
+
+1. GetUserActivity
+
+**GIVEN (Preconditions):**
+
+1. The user exists in the database 
+
+**WHEN (Action(s)):**
+
+1. Users *emailId* is passed into GetUserActivity.handleRequest
+
+**THEN (Verification steps):**
+
+1. Assert that the returned *emailId* is equal to the given *emailId*
+
+## Use Case: Add Coin
+
+### Test case name: handleRequest_addCoinToUser_returnsUpdatedUser
+
+**Acceptance criteria:**
+
+1. A users *coins* is updated in the *users* table with the additional coin
+2. Both the coin ID and the amount is correctly reflected in the return
+
+**Endpoint(s) tested:**
+
+1. UpdateUserActivity
+
+**GIVEN (Preconditions):**
+
+1. The user exists in the database
+2. A valid *coinId* and *amount*
+
+**WHEN (Action(s)):**
+
+1. Users *emailId*, *coinId*, and *amount* are passed into UpdateUserActivity.handleRequest
+
+**THEN (Verification steps):**
+
+1. Assert that the resulting *emailId* is equal to the given *emailId*
+2. Assert that the resulting *coins* contains the *coinId* and *amount* values equal to the given *coinId* and *amount*
+
+
+## Use Case: Remove Coin
+
+### Test case name: handleRequest_removeCoinFromUser_returnsUpdatedUser
+
+**Acceptance criteria:**
+
+1. A users **coins** is updated in the **users** table with the removed coin no longer present
+
+**Endpoint(s) tested:**
+
+1. UpdateUserActivity
+
+**GIVEN (Preconditions):**
+
+1. The user exists in the database
+2. The coin with **coinId** and **amount** > 0 exists in the users **coins** map
+
+**WHEN (Action(s)):**
+
+1. Users **emailId**, **coinId**, and **amount** of 0 are passed into UpdateUserActivity.handleRequest
+
+**THEN (Verification steps):**
+
+1. Assert that the resulting **emailId** is equal to the given **emailId**
+2. Assert that the resulting **coins** does not contain the removed **coinId**
+
+
+## Use Case: Update Coin Amount
+
+### Test case name: handleRequest_updateCoinAmount_returnsUpdatedUser
+
+**Acceptance criteria:**
+
+1. A users **coins** is updated in the **users** table with **coinId**'s updated amount
+
+**Endpoint(s) tested:**
+
+1. UpdateUserActivity
+
+**GIVEN (Preconditions):**
+
+1. The user exists in the database
+2. The coin with **coinId** and any **amount** exists in the users **coins** map
+
+**WHEN (Action(s)):**
+
+1. Users **emailId**, **coinId**, and **amount** are passed into UpdateUserActivity.handleRequest
+
+**THEN (Verification steps):**
+
+1. Assert that the resulting **emailId** is equal to the given **emailId**
+2. Assert that the resulting **coins** contains the updated **amount** of the correct **coinId**
+
 
 # Manual Front-end Test Plan
 
