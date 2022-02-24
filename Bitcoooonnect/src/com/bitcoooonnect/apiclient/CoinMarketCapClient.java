@@ -1,20 +1,30 @@
 package com.bitcoooonnect.apiclient;
 
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.List;
 import java.util.Map;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 import okhttp3.*;
 import org.json.simple.JSONObject;
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class CoinMarketCapClient {
+
+    public static void main(String[] args) throws Exception {
+        updateCoinPrice();
+    }
+
     public static final MediaType JSON
             = MediaType.get("application/json; charset=utf-8");
-    public static final OkHttpClient client = new OkHttpClient();
+    public static final OkHttpClient client = new OkHttpClient.Builder()
+            .connectTimeout(100, TimeUnit.SECONDS)
+            .writeTimeout(100, TimeUnit.SECONDS)
+            .readTimeout(100, TimeUnit.SECONDS)
+            .build();
 
     public static void updateCoinPrice() throws Exception {
 
@@ -24,6 +34,11 @@ public class CoinMarketCapClient {
         Request request1 = new Request.Builder()
                 .url("https://pro-api.coinmarketcap.com/v1/cryptocurrency/" +
                         "listings/latest?start=1&limit=5000&convert=USD")
+                .header("X-CMC_PRO_API_KEY", "f8137c54-5648-4e3e-92eb-9e64a4e36b4e")
+                .build();
+        Request request2 = new Request.Builder()
+                .url("https://pro-api.coinmarketcap.com/v1/cryptocurrency/" +
+                        "listings/latest?start=5000&limit=5000&convert=USD")
                 .header("X-CMC_PRO_API_KEY", "f8137c54-5648-4e3e-92eb-9e64a4e36b4e")
                 .build();
 
@@ -37,6 +52,23 @@ public class CoinMarketCapClient {
         Map<String, Object> gist1;
         List<Map<String, Object>> gist2;
         try (Response response = client.newCall(request1).execute()) {
+            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+
+            gist1 = jsonAdapter.fromJson(response.body().source());
+            gist2 = (List) gist1.get("data");
+
+            System.out.println("size :" + gist2.size());
+
+
+            for (Map<String, Object> coin : gist2) {
+
+                Map<String, Map<String, Object>> quote = (Map)coin.get("quote");
+
+                coinsListObject.put(coin.get("name"), quote.get("USD").get(
+                        "price"));
+            }
+        }
+        try (Response response = client.newCall(request2).execute()) {
             if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
             gist1 = jsonAdapter.fromJson(response.body().source());
