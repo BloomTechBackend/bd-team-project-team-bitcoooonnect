@@ -41,6 +41,11 @@ public class CoinDao {
 
         return coins;
     }
+
+    public Coin getOneCoin(String id) {
+        Coin coin = this.dynamoDBMapper.load(Coin.class, id);
+        return coin;
+    }
 //    public Map<String, List<Object>> getAllCoins(){
 //
 //        List<KeyPair> keyPairList = new ArrayList<>();
