@@ -51,16 +51,15 @@ Select one of your endpoints and list the operation’s input and output objects
 Under each, list its attributes.
 
 *Endpoint: Update User     
-*Input object(s):* user      
+*Input object(s):* UpdateUserRequest      
 
 * emailId
 * coinId
 * amount
 
-*Output object(s): coins      
+*Output object(s): UpdateUserResult     
 
-* coinId(s)
-* amount(s)
+* Map<CoinIds, Amount> coins
 
 **Given a user story that requires a user to provide values to a service
 endpoint, design a service endpoint including inputs, outputs, and errors.**
@@ -71,9 +70,8 @@ most 3 error cases.
 |**Endpoint:**  |   Update User                  |
 |---            |---                  |
 |**Error case** |**Service response** |
-|               |                     |
-|               |                     |
-|               |                     |
+|     Invalid coinId          |     Throw CoinNotFoundException               |
+|      Invalid amount         |       Throw InvalidAttributeException              |
 
 **Develop a service endpoint definition that uses query parameters to determine
 how results are sorted or filtered.** List at least one endpoint that allows
@@ -88,8 +86,8 @@ service code throws. List one condition in which this exception is thrown.
 
 |                       |**Exception** |**One case in which it is thrown** |
 |---	                |---	       |---	                               |
-|**Client exception:**  |	           |	                               |
-|**Service exception:** |	           |	                               |
+|**Client exception:**  |	APIOfflineException           |	      If our API is down, this exception will be thrown upon a user sending a GET request                         |
+|**Service exception:** |	InvalidAttributeException           |	User updates a coin amount with a negative number                               |
 
 ### DynamoDB Table Design
 
@@ -159,7 +157,7 @@ team member learned:
 
 |Team Member |Something new the team member learned |   
 |---   |---                                   |
-|      |                                      |   
+| Evan     |  How to use AWS Cognito - create user pools, connecting to front-end, JSON Web Tokens                                    |   
 |      |                                      |     
 |      |                                      |     
 |      |                                      |     
@@ -176,13 +174,13 @@ resource that you found that was helpful.
 **Find material online to learn new technical topics.** List one resource that
 your team found on your own that helped you on your project.
 
-**Topic:**
+**Topic:** Configuring AWS user pools 
 
-**Resource:**
+**Resource:**  https://www.youtube.com/watch?v=oFSU6rhFETk
 
 **Share what was worked on yesterday, the plan for today, and any blockers as a
 part of a scrum standup.** In one or two sentences, describe what your team
 found to be the most useful outcome from holding daily standups.
 
-1.
+1. Being able to discuss blockers, bugs we were working through at the time, and leaning on our varied past programming experiences to help come up with solutions.
 
