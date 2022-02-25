@@ -45,6 +45,14 @@ public class GetUserActivity implements RequestHandler<GetUserRequest, GetUserRe
 
         List<String> ids = new ArrayList<>();
 
+        UserModel userModel =  new ModelConverter().toUserModel(user);
+
+        if(user.getCoins().isEmpty()) {
+            return GetUserResult.builder()
+                    .withUser(userModel)
+                    .build();
+        }
+
         for(String userCoin : user.getCoins().keySet()) {
             ids.add(userCoin);
         }
@@ -75,7 +83,6 @@ public class GetUserActivity implements RequestHandler<GetUserRequest, GetUserRe
             throw new InvalidAttributeException("Invalid email, no user exists with that email address!");
         }
 
-        UserModel userModel =  new ModelConverter().toUserModel(user);
 
         return GetUserResult.builder()
                 .withUser(userModel)
