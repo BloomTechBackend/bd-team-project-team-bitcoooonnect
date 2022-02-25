@@ -158,9 +158,8 @@ team member learned:
 |Team Member |Something new the team member learned |   
 |---   |---                                   |
 | Evan     |  How to use AWS Cognito - create user pools, connecting to front-end, JSON Web Tokens                                    |   
-|      |                                      |     
-|      |                                      |     
-|      |                                      |     
+| Ron     |   AWS Amplify                                   |     
+| Juan     |   HTML/CSS/JS                                   |
 
 **Identify key words to research to accomplish a technical goal | Use sources
 like sage and stack overflow to solve issues encountered while programming.**
