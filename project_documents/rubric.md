@@ -24,15 +24,13 @@ We want you to see the full set of expectations for transparency’s sake.*
 |[Team Charter](team_charter.md)                                  |Sprint 1 Modeul 3         | 02/09/22              | https://github.com/BloomTechBackend/bd-team-project-team-bitcoooonnect/blob/main/project_documents/team_charter.md                                 |
 |[Design Document](design_document.md)                            |Sprint 1 Friday by 5pm    | 02/11/22             | https://github.com/BloomTechBackend/bd-team-project-team-bitcoooonnect/blob/main/project_documents/design_document.md                                 |
 |Project Completion (Feature Complete)                            |Sprint 3 Friday by 5pm    |               | https://main.d1cm820nfbsmxw.amplifyapp.com/ // https://github.com/BloomTechBackend/bd-team-project-team-bitcoooonnect                             |
-|[Team Reflection](reflection.md)                                 |Sprint 4 Wednesday by 5PM |               |                                  |
-|[Accomplishment Tracking (person 1)](accomplishment_tracking.md) |Sprint 4 Wednesday by 5PM |               |                                  |
-|[Accomplishment Tracking (person 2)](accomplishment_tracking.md) |Sprint 4 Wednesday by 5PM |               |                                  |
-|[Accomplishment Tracking (person 3)](accomplishment_tracking.md) |Sprint 4 Wednesday by 5PM |               |                                  |
-|[Accomplishment Tracking (person 4)](accomplishment_tracking.md) |Sprint 4 Wednesday by 5PM |               |                                  |
-|Self Reflection (person 1)                        |Sprint 4 Wednesday by 5PM |               |n/a (will be submitted via Canvas - "Wrap-up" section) |
-|Self Reflection (person 2)                        |Sprint 4 Wednesday by 5PM |               |n/a (will be submitted via Canvas - "Wrap-up" section) |
-|Self Reflection (person 3)                        |Sprint 4 Wednesday by 5PM |               |n/a (will be submitted via Canvas - "Wrap-up" section) |
-|Self Reflection (person 4)                        |Sprint 4 Wednesday by 5PM |               |n/a (will be submitted via Canvas - "Wrap-up" section) |
+|[Team Reflection](reflection.md)                                 |Sprint 4 Wednesday by 5PM | 03/01/22              |  https://github.com/BloomTechBackend/bd-team-project-team-bitcoooonnect/blob/main/project_documents/Bitcoooonnect/reflection.md                                |
+|[Accomplishment Tracking (person 1)](accomplishment_tracking.md) |Sprint 4 Wednesday by 5PM | 03/01/22              |                                  |
+|[Accomplishment Tracking (person 2)](accomplishment_tracking.md) |Sprint 4 Wednesday by 5PM | 03/01/22              |                                  |
+|[Accomplishment Tracking (person 3)](accomplishment_tracking.md) |Sprint 4 Wednesday by 5PM | 03/01/22              |                                  |
+|Self Reflection (Evan)                        |Sprint 4 Wednesday by 5PM |               |n/a (will be submitted via Canvas - "Wrap-up" section) |
+|Self Reflection (Ron)                        |Sprint 4 Wednesday by 5PM |               |n/a (will be submitted via Canvas - "Wrap-up" section) |
+|Self Reflection (Juan)                        |Sprint 4 Wednesday by 5PM |               |n/a (will be submitted via Canvas - "Wrap-up" section) |
 
 ## Technical Learning Objectives
 
