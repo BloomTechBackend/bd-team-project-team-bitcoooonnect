@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <my-portfolio msg="My Crypto Portfolio"
+    <my-portfolio msg="Bitcoooonnect"
     :auth="auth"
     :email="getEmail()"
     />

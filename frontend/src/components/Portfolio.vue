@@ -7,18 +7,19 @@
         
         <div v-else>
             <div>
-                <h2>Total Portfolio Value: ${{portfolio || 0}} </h2>
+                <h2>Portfolio Value: ${{portfolio || 0}} </h2>
             </div>
 
-            <div>
+            <div class="new-coin-container">
                 <div></div>
                 <input v-model="newCoin.name" placeholder="coin name">
                 <input v-model="newCoin.amount" type="text" placeholder="amount">
-                <input :class="isCoinNotfound()" @click="updateCoin" type="button" :value="sumbitText">
+                <input v-if="!isUpdatingCoin" :class="isCoinNotfound()" @click="updateCoin" type="button" :value="sumbitText">
+                <pulse-loader class="updating-loader" v-else :color="'#0d47a1'"></pulse-loader>
             </div>
 
             <div class="container">
-                <table>
+                <table v-if="this.state !== 'loading'">
                     <thead>
                         <tr>
                             <th>Coin</th>
@@ -27,18 +28,22 @@
                             <th>Value</th>
                         </tr>
                     </thead>
-                    <tbody v-if="state === 'ready'">
-                        <tr v-for="(coin, value) in coins" :key="coin.name">
-                            <td>{{value}}</td>
-                            <td>{{coin.amount}}</td>
+                    <tbody>
+                        <tr v-for="(coin, name) in coins" :key="coin.name">
+                            <td>
+                                {{name}}
+                            </td>
+                            <td>
+                                <pulse-loader v-if="isLoadingCoin === name" :color="'#0d47a1'" :size="'7px'">
+                                </pulse-loader >
+                                <span v-else>{{coin.amount}}</span>
+                            </td>
                             <td>${{coin.price.toFixed(2)}}</td>
                             <td>${{coin.value.toFixed(2)}}</td>
                         </tr>
                     </tbody>
-                </table>  
-                <div v-if="state === 'loading'">
-                    <p>loading data...</p>
-                </div>
+                </table>
+                <pulse-loader class="loader" v-else :color="'#0d47a1'"></pulse-loader>
             </div>
         </div>
     </body>
@@ -48,6 +53,7 @@
 <script>
 
 import axios from 'axios';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 export default {
   name: 'MyPortfolio',
@@ -55,6 +61,9 @@ export default {
     msg: String,
     auth: String,
     email: String
+  },
+  components: {
+    PulseLoader
   },
 
   data: function() {
@@ -64,6 +73,7 @@ export default {
           //Changes Here
           ourCoinList: new Map(),
           state: "ready",
+          loadingCoin: "",
           newCoin: {
               name: null,
               amount: null,
@@ -87,9 +97,19 @@ export default {
              return 'Update Portfolio';
          }
       },
+      isUpdatingCoin: function() {
+          return this.state === "updating";
+      },
+      isLoadingCoin: function() {
+          return this.loadingCoin;
+      },
       portfolio: function() {
+        if(!this.coins){
+            return 0;
+        }
+        
         let networth = 0; 
-        // this.state = "loading";
+
         let size = Object.keys(this.coins).length
         if (size === 0) {
             return;
@@ -104,6 +124,16 @@ export default {
       },
   },
   methods: {
+    resetNewCoin() {
+        this.newCoin.name = null;
+        this.newCoin.amount = null;
+    },
+    isLoading(coin) {
+       return coin.state === 'loading';
+    },
+    isReady(coin) {
+       return coin.state === 'ready';
+    },
     isCoinNotfound() {
         if(this.coinNotfound) {
           return 'coin-not-found';  
@@ -113,7 +143,7 @@ export default {
       if (location.href.split('#').length === 1) {
           return null;
       }
-      this.state = "loading"
+
       axios
         .get(this.url,
         {headers: {
@@ -124,6 +154,7 @@ export default {
              return this.createUser();
             }
             this.coins = response.data.coins
+            this.loadingCoin = "";
             this.state = "ready"
         }
         )
@@ -179,8 +210,9 @@ export default {
             return;
         }
 
-        //
-        this.state = "loading";
+        this.state = "updating"
+
+        this.loadingCoin = this.newCoin.name
         let extraParams = `&coinId=${this.newCoin.name}&amount=${this.newCoin.amount}`
         axios.put(this.url + extraParams, {}, {
         headers: {
@@ -195,12 +227,12 @@ export default {
                 this.state = "ready";
             }
         })
+        this.resetNewCoin()
    },
     getOurCoinList() {
         if (location.href.split('#').length === 1) {
             return null;
         } 
-        this.state = "loading";
 
         axios.get('https://t3d210uhn7.execute-api.us-east-2.amazonaws.com/test/graball', {}
         ).then((res) => {
@@ -230,5 +262,16 @@ export default {
 .coin-not-found {
     color: red;
     background-color: transparent;
+}
+.loader {
+    margin-top: 5em;
+}
+
+.new-coin-container {
+    min-height: 200px;
+}
+
+.updating-loader {
+    margin-top: 1em;
 }
 </style>
