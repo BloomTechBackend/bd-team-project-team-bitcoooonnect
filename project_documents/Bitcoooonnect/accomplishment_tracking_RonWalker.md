@@ -66,7 +66,7 @@
 * How to batch load and batch save to dynamodb
 
 # Week 3
-###Goals:
+### Goals:
 * Finish frontend
 * set up aws Cognito for better auth flow.
 * Set up amplify to host our website.
@@ -85,10 +85,10 @@
 * Cloudwatch events
 
 # Week 4
-###Goals:
+### Goals:
 Put the finishing touches on the project
 Get ready for the presentation.
-###Activity:
+### Activity:
 * Frontend finishing touches
   * added a spinning loader for when you load the page for the first time, and 
     when you update a single coin.
